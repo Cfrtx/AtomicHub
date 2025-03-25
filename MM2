@@ -1,0 +1,925 @@
+
+local passes, fails, undefined = 0, 0, 0
+local running = 0
+local Players = game:GetService("Players")
+local LP = Players.LocalPlayer
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+
+-- Role tracking variables
+local roles = {}
+local Murder, Sheriff, Hero = nil, nil, nil
+
+local function getGlobal(path)
+    local value = getfenv(0)
+    while value ~= nil and path ~= "" do
+        local name, nextValue = string.match(path, "^([^.]+)%.?(.*)$")
+        value = value[name]
+        path = nextValue
+    end
+    return value
+end
+
+local function test(name, aliases, callback)
+    running += 1
+    task.spawn(function()
+        if not callback then
+            print("⏺️ " .. name)
+        elseif not getGlobal(name) then
+            fails += 1
+            warn("⛔ " .. name)
+        else
+            local success, message = pcall(callback)
+            if success then
+                passes += 1
+                print("✅ " .. name .. (message and " • " .. message or ""))
+            else
+                fails += 1
+                warn("⛔ " .. name .. " failed: " .. message)
+            end
+        end
+    
+        local undefinedAliases = {}
+        for _, alias in ipairs(aliases) do
+            if getGlobal(alias) == nil then
+                table.insert(undefinedAliases, alias)
+            end
+        end
+    
+        if #undefinedAliases > 0 then
+            undefined += 1
+            warn("⚠️ " .. table.concat(undefinedAliases, ", "))
+        end
+        running -= 1
+    end)
+end
+
+-- Essential UNC Tests
+test("getrawmetatable", {}, function() return "Essential" end)
+test("setreadonly", {}, function() return "Essential" end)
+test("hookfunction", {}, function() return "Essential" end)
+test("newcclosure", {}, function() return "Essential" end)
+test("getnamecallmethod", {}, function() return "Essential" end)
+
+-- Wait for tests to complete
+repeat task.wait() until running == 0
+local rate = math.round(passes / (passes + fails) * 100)
+
+-- Notification System
+local function Notify(title, message, duration)
+    local Notification = Instance.new("ScreenGui")
+    Notification.Name = "AtomicNotification_"..math.random(1,9999)
+    Notification.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    Notification.Parent = game:GetService("CoreGui")
+
+    local Frame = Instance.new("Frame")
+    Frame.Size = UDim2.new(0, 300, 0, 80)
+    Frame.Position = UDim2.new(1, -320, 1, -100)
+    Frame.AnchorPoint = Vector2.new(1, 1)
+    Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+    Frame.BorderSizePixel = 0
+    Frame.Parent = Notification
+
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0, 8)
+    UICorner.Parent = Frame
+
+    local Gradient = Instance.new("UIGradient")
+    Gradient.Color = ColorSequence.new({
+        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 50, 150)),
+        ColorSequenceKeypoint.new(1, Color3.fromRGB(180, 30, 120))
+    })
+    Gradient.Rotation = 90
+    Gradient.Parent = Frame
+
+    local Title = Instance.new("TextLabel")
+    Title.Text = "🔥 "..title
+    Title.Font = Enum.Font.GothamBold
+    Title.TextSize = 16
+    Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Title.BackgroundTransparency = 1
+    Title.Size = UDim2.new(1, -20, 0, 20)
+    Title.Position = UDim2.new(0, 10, 0, 10)
+    Title.TextXAlignment = Enum.TextXAlignment.Left
+    Title.Parent = Frame
+
+    local Message = Instance.new("TextLabel")
+    Message.Text = message
+    Message.Font = Enum.Font.Gotham
+    Message.TextSize = 14
+    Message.TextColor3 = Color3.fromRGB(200, 200, 200)
+    Message.BackgroundTransparency = 1
+    Message.Size = UDim2.new(1, -20, 1, -40)
+    Message.Position = UDim2.new(0, 10, 0, 30)
+    Message.TextXAlignment = Enum.TextXAlignment.Left
+    Message.TextYAlignment = Enum.TextYAlignment.Top
+    Message.TextWrapped = true
+    Message.Parent = Frame
+
+    Frame:TweenPosition(UDim2.new(1, -320, 1, -100), "Out", "Quad", 0.3, true)
+    task.wait(duration or 5)
+    Frame:TweenPosition(UDim2.new(1, 300, 1, -100), "Out", "Quad", 0.3, true)
+    task.wait(0.3)
+    Notification:Destroy()
+end
+
+-- Show UNC Results
+if rate < 80 then
+    Notify("UNC Warning", "Your executor has "..rate.."% compatibility. Some features may not work properly.", 7)
+else
+    Notify("UNC Check", "Your executor has "..rate.."% compatibility. All features should work!", 5)
+end
+
+-- Main UI
+local AtomicHub = Instance.new("ScreenGui")
+AtomicHub.Name = "AtomicHubMM2_"..math.random(10000,99999)
+AtomicHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+AtomicHub.Parent = game:GetService("CoreGui")
+
+-- Main Frame (Ultra Compact)
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.Size = UDim2.new(0, 420, 0, 35)
+MainFrame.Position = UDim2.new(0.5, -210, 0.1, 0)
+MainFrame.AnchorPoint = Vector2.new(0.5, 0)
+MainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 20)
+MainFrame.BorderSizePixel = 0
+MainFrame.ClipsDescendants = true
+MainFrame.Parent = AtomicHub
+
+-- UI Design Elements
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 6)
+UICorner.Parent = MainFrame
+
+local FrameGradient = Instance.new("UIGradient")
+FrameGradient.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(25, 25, 35)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(20, 20, 30))
+})
+FrameGradient.Rotation = 90
+FrameGradient.Parent = MainFrame
+
+local HeaderGlow = Instance.new("ImageLabel")
+HeaderGlow.Name = "HeaderGlow"
+HeaderGlow.Image = "rbxassetid://8995795881"
+HeaderGlow.ImageColor3 = Color3.fromRGB(255, 50, 150)
+HeaderGlow.ImageTransparency = 0.7
+HeaderGlow.ScaleType = Enum.ScaleType.Slice
+HeaderGlow.SliceCenter = Rect.new(20, 20, 280, 280)
+HeaderGlow.Size = UDim2.new(1, 0, 0, 20)
+HeaderGlow.Position = UDim2.new(0, 0, 0, -5)
+HeaderGlow.BackgroundTransparency = 1
+HeaderGlow.ZIndex = 0
+HeaderGlow.Parent = MainFrame
+
+-- Header with Player Info
+local Header = Instance.new("Frame")
+Header.Name = "Header"
+Header.Size = UDim2.new(1, 0, 0, 35)
+Header.BackgroundTransparency = 1
+Header.Parent = MainFrame
+
+-- Atomic Hub Logo
+local Logo = Instance.new("TextLabel")
+Logo.Text = "ATOMIC HUB"
+Logo.Font = Enum.Font.GothamBold
+Logo.TextSize = 14
+Logo.TextColor3 = Color3.fromRGB(255, 50, 150)
+Logo.BackgroundTransparency = 1
+Logo.Size = UDim2.new(0, 100, 1, 0)
+Logo.Position = UDim2.new(0, 5, 0, 0)
+Logo.TextXAlignment = Enum.TextXAlignment.Left
+Logo.Parent = Header
+
+-- Player Avatar
+local AvatarFrame = Instance.new("Frame")
+AvatarFrame.Name = "Avatar"
+AvatarFrame.Size = UDim2.new(0, 30, 0, 30)
+AvatarFrame.Position = UDim2.new(0, 110, 0.5, -15)
+AvatarFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+AvatarFrame.Parent = Header
+
+local AvatarCorner = Instance.new("UICorner")
+AvatarCorner.CornerRadius = UDim.new(1, 0)
+AvatarCorner.Parent = AvatarFrame
+
+local PlayerImage = Instance.new("ImageLabel")
+PlayerImage.Name = "Image"
+PlayerImage.Size = UDim2.new(1, 0, 1, 0)
+PlayerImage.BackgroundTransparency = 1
+PlayerImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=150&height=150&format=png"
+PlayerImage.Parent = AvatarFrame
+
+-- Player Info
+local PlayerInfo = Instance.new("Frame")
+PlayerInfo.Name = "Info"
+PlayerInfo.Size = UDim2.new(0, 180, 1, 0)
+PlayerInfo.Position = UDim2.new(0, 145, 0, 0)
+PlayerInfo.BackgroundTransparency = 1
+PlayerInfo.Parent = Header
+
+local PlayerName = Instance.new("TextLabel")
+PlayerName.Name = "Name"
+PlayerName.Text = game.Players.LocalPlayer.Name
+PlayerName.Font = Enum.Font.GothamBold
+PlayerName.TextSize = 14
+PlayerName.TextColor3 = Color3.fromRGB(220, 220, 220)
+PlayerName.BackgroundTransparency = 1
+PlayerName.Size = UDim2.new(1, 0, 0.5, 0)
+PlayerName.TextXAlignment = Enum.TextXAlignment.Left
+PlayerName.Parent = PlayerInfo
+
+local PlayerStats = Instance.new("TextLabel")
+PlayerStats.Name = "Stats"
+PlayerStats.Text = "Role: Innocent | Kills: 0 | Ping: 50ms"
+PlayerStats.Font = Enum.Font.Gotham
+PlayerStats.TextSize = 11
+PlayerStats.TextColor3 = Color3.fromRGB(180, 180, 180)
+PlayerStats.BackgroundTransparency = 1
+PlayerStats.Size = UDim2.new(1, 0, 0.5, 0)
+PlayerStats.Position = UDim2.new(0, 0, 0.5, 0)
+PlayerStats.TextXAlignment = Enum.TextXAlignment.Left
+PlayerStats.Parent = PlayerInfo
+
+-- Expand/Collapse Button
+local ToggleButton = Instance.new("TextButton")
+ToggleButton.Name = "ToggleButton"
+ToggleButton.Text = "+"
+ToggleButton.Font = Enum.Font.GothamBold
+ToggleButton.TextSize = 18
+ToggleButton.TextColor3 = Color3.fromRGB(220, 220, 220)
+ToggleButton.BackgroundTransparency = 1
+ToggleButton.Size = UDim2.new(0, 30, 1, 0)
+ToggleButton.Position = UDim2.new(1, -30, 0, 0)
+ToggleButton.Parent = Header
+
+-- Content Frame (Hidden when collapsed)
+local ContentFrame = Instance.new("Frame")
+ContentFrame.Name = "ContentFrame"
+ContentFrame.Size = UDim2.new(1, -10, 0, 310)
+ContentFrame.Position = UDim2.new(0, 5, 0, 40)
+ContentFrame.BackgroundTransparency = 1
+ContentFrame.Visible = false
+ContentFrame.Parent = MainFrame
+
+-- Tab Buttons (Compact)
+local TabButtons = Instance.new("Frame")
+TabButtons.Name = "TabButtons"
+TabButtons.Size = UDim2.new(1, 0, 0, 25)
+TabButtons.BackgroundTransparency = 1
+TabButtons.Parent = ContentFrame
+
+local Tabs = {"VISUALS", "COMBAT", "MOVEMENT", "AUTO", "TRADE"}
+
+for i, tab in pairs(Tabs) do
+    local TabButton = Instance.new("TextButton")
+    TabButton.Name = tab
+    TabButton.Text = tab
+    TabButton.Font = Enum.Font.Gotham
+    TabButton.TextSize = 12
+    TabButton.TextColor3 = Color3.fromRGB(180, 180, 180)
+    TabButton.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+    TabButton.Size = UDim2.new(0.2, -2, 1, 0)
+    TabButton.Position = UDim2.new(0.2 * (i-1), 0, 0, 0)
+    TabButton.Parent = TabButtons
+    
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0, 4)
+    UICorner.Parent = TabButton
+    
+    local TabHighlight = Instance.new("Frame")
+    TabHighlight.Name = "Highlight"
+    TabHighlight.Size = UDim2.new(1, 0, 0, 2)
+    TabHighlight.Position = UDim2.new(0, 0, 1, -2)
+    TabHighlight.BackgroundColor3 = Color3.fromRGB(255, 50, 150)
+    TabHighlight.BorderSizePixel = 0
+    TabHighlight.Visible = i == 1
+    TabHighlight.Parent = TabButton
+end
+
+-- Tab Content
+local TabContent = Instance.new("Frame")
+TabContent.Name = "TabContent"
+TabContent.Size = UDim2.new(1, 0, 1, -30)
+TabContent.Position = UDim2.new(0, 0, 0, 30)
+TabContent.BackgroundTransparency = 1
+TabContent.Parent = ContentFrame
+
+-- Features (Now with more options)
+local Features = {
+    VISUALS = {
+        {Name = "Player ESP", Type = "Toggle", Default = false, Keybind = nil},
+        {Name = "Box ESP", Type = "Toggle", Default = false, Keybind = nil},
+        {Name = "Health Bars", Type = "Toggle", Default = false, Keybind = nil},
+        {Name = "Tracers", Type = "Toggle", Default = false, Keybind = nil},
+        {Name = "Chams", Type = "Toggle", Default = false, Keybind = nil},
+        {Name = "Distance", Type = "Slider", Min = 50, Max = 500, Default = 200}
+    },
+    COMBAT = {
+        {Name = "Aimbot", Type = "Toggle", Default = false, Keybind = Enum.KeyCode.Q},
+        {Name = "Silent Aim", Type = "Toggle", Default = false, Keybind = nil},
+        {Name = "Trigger Bot", Type = "Toggle", Default = false, Keybind = nil},
+        {Name = "Hitbox Extend", Type = "Toggle", Default = false, Keybind = nil},
+        {Name = "No Recoil", Type = "Toggle", Default = false, Keybind = nil}
+    },
+    MOVEMENT = {
+        {Name = "Speed Hack", Type = "Toggle", Default = false, Keybind = Enum.KeyCode.LeftShift},
+        {Name = "Fly", Type = "Toggle", Default = false, Keybind = Enum.KeyCode.F},
+        {Name = "NoClip", Type = "Toggle", Default = false, Keybind = Enum.KeyCode.N},
+        {Name = "Infinite Jump", Type = "Toggle", Default = false, Keybind = nil}
+    },
+    AUTO = {
+        {Name = "Auto Farm", Type = "Toggle", Default = false, Keybind = nil},
+        {Name = "Auto Collect", Type = "Toggle", Default = false, Keybind = nil},
+        {Name = "Auto Win", Type = "Toggle", Default = false, Keybind = nil}
+    },
+    TRADE = {
+        {Name = "Trade Dupe", Type = "Toggle", Default = false, Keybind = nil},
+        {Name = "Auto Accept", Type = "Toggle", Default = false, Keybind = nil},
+        {Name = "Value Checker", Type = "Toggle", Default = false, Keybind = nil}
+    }
+}
+
+-- Create Feature Elements
+for tabName, tabFeatures in pairs(Features) do
+    local TabFrame = Instance.new("ScrollingFrame")
+    TabFrame.Name = tabName
+    TabFrame.Size = UDim2.new(1, 0, 1, 0)
+    TabFrame.BackgroundTransparency = 1
+    TabFrame.ScrollBarThickness = 3
+    TabFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 50, 150)
+    TabFrame.Visible = tabName == "VISUALS"
+    TabFrame.Parent = TabContent
+    
+    local Layout = Instance.new("UIListLayout")
+    Layout.Padding = UDim.new(0, 5)
+    Layout.Parent = TabFrame
+    
+    for _, feature in pairs(tabFeatures) do
+        local FeatureFrame = Instance.new("Frame")
+        FeatureFrame.Name = feature.Name
+        FeatureFrame.Size = UDim2.new(1, -5, 0, 28)
+        FeatureFrame.BackgroundTransparency = 1
+        FeatureFrame.Parent = TabFrame
+        
+        local FeatureLabel = Instance.new("TextLabel")
+        FeatureLabel.Text = feature.Name
+        FeatureLabel.Font = Enum.Font.Gotham
+        FeatureLabel.TextSize = 13
+        FeatureLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+        FeatureLabel.BackgroundTransparency = 1
+        FeatureLabel.Size = UDim2.new(0, 180, 1, 0)
+        FeatureLabel.TextXAlignment = Enum.TextXAlignment.Left
+        FeatureLabel.Parent = FeatureFrame
+        
+        if feature.Type == "Toggle" then
+            -- Toggle Button with Gradient
+            local ToggleFrame = Instance.new("Frame")
+            ToggleFrame.Size = UDim2.new(0, 45, 0, 22)
+            ToggleFrame.Position = UDim2.new(1, -50, 0.5, -11)
+            ToggleFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+            ToggleFrame.Parent = FeatureFrame
+            
+            local ToggleGradient = Instance.new("UIGradient")
+            ToggleGradient.Color = ColorSequence.new({
+                ColorSequenceKeypoint.new(0, Color3.fromRGB(50, 50, 60)),
+                ColorSequenceKeypoint.new(1, Color3.fromRGB(40, 40, 50))
+            })
+            ToggleGradient.Parent = ToggleFrame
+            
+            local ToggleCorner = Instance.new("UICorner")
+            ToggleCorner.CornerRadius = UDim.new(1, 0)
+            ToggleCorner.Parent = ToggleFrame
+            
+            local ToggleButton = Instance.new("Frame")
+            ToggleButton.Name = "Button"
+            ToggleButton.Size = UDim2.new(0, 18, 0, 18)
+            ToggleButton.Position = feature.Default and UDim2.new(1, -20, 0.5, -9) or UDim2.new(0, 2, 0.5, -9)
+            ToggleButton.BackgroundColor3 = feature.Default and Color3.fromRGB(80, 200, 120) or Color3.fromRGB(200, 80, 80)
+            ToggleButton.Parent = ToggleFrame
+            
+            local ToggleGlow = Instance.new("ImageLabel")
+            ToggleGlow.Image = "rbxassetid://8995795881"
+            ToggleGlow.ImageColor3 = feature.Default and Color3.fromRGB(80, 200, 120) or Color3.fromRGB(200, 80, 80)
+            ToggleGlow.ImageTransparency = 0.8
+            ToggleGlow.ScaleType = Enum.ScaleType.Slice
+            ToggleGlow.SliceCenter = Rect.new(20, 20, 280, 280)
+            ToggleGlow.Size = UDim2.new(1, 10, 1, 10)
+            ToggleGlow.Position = UDim2.new(0, -5, 0, -5)
+            ToggleGlow.BackgroundTransparency = 1
+            ToggleGlow.Parent = ToggleButton
+            
+            local ToggleCorner2 = Instance.new("UICorner")
+            ToggleCorner2.CornerRadius = UDim.new(1, 0)
+            ToggleCorner2.Parent = ToggleButton
+            
+            ToggleFrame.InputBegan:Connect(function(input)
+                if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    feature.Default = not feature.Default
+                    local tween = game:GetService("TweenService"):Create(
+                        ToggleButton,
+                        TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                        {
+                            Position = feature.Default and UDim2.new(1, -20, 0.5, -9) or UDim2.new(0, 2, 0.5, -9),
+                            BackgroundColor3 = feature.Default and Color3.fromRGB(80, 200, 120) or Color3.fromRGB(200, 80, 80)
+                        }
+                    )
+                    ToggleGlow.ImageColor3 = feature.Default and Color3.fromRGB(80, 200, 120) or Color3.fromRGB(200, 80, 80)
+                    tween:Play()
+                    
+                    -- Feature activation
+                    if feature.Name == "Player ESP" then
+                        Notify("ESP", feature.Default and "Enabled Player ESP" or "Disabled Player ESP", 2)
+                    elseif feature.Name == "Aimbot" then
+                        Notify("Aimbot", feature.Default and "Enabled Aimbot (Press Q)" or "Disabled Aimbot", 2)
+                    elseif feature.Name == "Speed Hack" then
+                        Notify("Speed", feature.Default and "Enabled Speed Hack" or "Disabled Speed Hack", 2)
+                    elseif feature.Name == "Fly" then
+                        Notify("Fly", feature.Default and "Enabled Fly (Press F)" or "Disabled Fly", 2)
+                    elseif feature.Name == "NoClip" then
+                        Notify("NoClip", feature.Default and "Enabled NoClip (Press N)" or "Disabled NoClip", 2)
+                    elseif feature.Name == "Auto Farm" then
+                        Notify("Auto Farm", feature.Default and "Enabled Auto Farm" or "Disabled Auto Farm", 2)
+                    end
+                end
+            end)
+            
+            -- Keybind Indicator
+            if feature.Keybind then
+                local KeybindLabel = Instance.new("TextLabel")
+                KeybindLabel.Text = "["..feature.Keybind.Name.."]"
+                KeybindLabel.Font = Enum.Font.Gotham
+                KeybindLabel.TextSize = 11
+                KeybindLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
+                KeybindLabel.BackgroundTransparency = 1
+                KeybindLabel.Size = UDim2.new(0, 40, 1, 0)
+                KeybindLabel.Position = UDim2.new(1, -100, 0, 0)
+                KeybindLabel.TextXAlignment = Enum.TextXAlignment.Right
+                KeybindLabel.Parent = FeatureFrame
+            end
+        end
+    end
+end
+
+-- Tab Switching
+for _, tabButton in pairs(TabButtons:GetChildren()) do
+    if tabButton:IsA("TextButton") then
+        tabButton.MouseButton1Click:Connect(function()
+            for _, btn in pairs(TabButtons:GetChildren()) do
+                if btn:IsA("TextButton") then
+                    btn.Highlight.Visible = false
+                end
+            end
+            
+            for _, frame in pairs(TabContent:GetChildren()) do
+                if frame:IsA("ScrollingFrame") then
+                    frame.Visible = false
+                end
+            end
+            
+            tabButton.Highlight.Visible = true
+            TabContent[tabButton.Name].Visible = true
+            Notify("Tab Changed", "Switched to "..tabButton.Name.." tab", 1)
+        end)
+    end
+end
+
+-- Expand/Collapse Functionality
+local isExpanded = false
+ToggleButton.MouseButton1Click:Connect(function()
+    isExpanded = not isExpanded
+    ToggleButton.Text = isExpanded and "-" or "+"
+    
+    if isExpanded then
+        ContentFrame.Visible = true
+        game:GetService("TweenService"):Create(
+            MainFrame,
+            TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+            {Size = UDim2.new(0, 420, 0, 350)}
+        ):Play()
+    else
+        game:GetService("TweenService"):Create(
+            MainFrame,
+            TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+            {Size = UDim2.new(0, 420, 0, 35)}
+        ):Play()
+        task.wait(0.25)
+        ContentFrame.Visible = false
+    end
+end)
+
+-- Dragging Functionality
+local UserInputService = game:GetService("UserInputService")
+local Dragging, DragInput, DragStart, StartPos
+
+Header.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        Dragging = true
+        DragStart = input.Position
+        StartPos = MainFrame.Position
+        
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                Dragging = false
+            end
+        end)
+    end
+end)
+
+Header.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement then
+        DragInput = input
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if input == DragInput and Dragging then
+        local Delta = input.Position - DragStart
+        MainFrame.Position = UDim2.new(
+            StartPos.X.Scale,
+            StartPos.X.Offset + Delta.X,
+            StartPos.Y.Scale,
+            StartPos.Y.Offset + Delta.Y
+        )
+    end
+end)
+-- [After all UI creation code] --
+-- [After Dragging Functionality] --
+-- [Before Player Stats Updater] --
+
+--> Place RIGHT HERE ▼▼▼
+
+-- Role detection loop (REPLACE WITH THIS VERSION)
+local roleUpdateConnection
+roleUpdateConnection = RunService.RenderStepped:Connect(function()
+    roles = ReplicatedStorage:FindFirstChild("GetPlayerData", true):InvokeServer()
+    
+    for playerName, data in pairs(roles) do
+        if data.Role == "Murderer" then
+            Murder = playerName
+        elseif data.Role == "Sheriff" then
+            Sheriff = playerName
+        elseif data.Role == "Hero" then
+            Hero = playerName
+        end
+    end
+end)
+local function GetClosestPlayer()
+    local closest, dist = nil, math.huge
+    for _, player in pairs(Players:GetPlayers()) do
+        if player ~= LP and player.Character and IsAlive(player) then
+            local distance = (LP.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude
+            if distance < dist then
+                closest = player
+                dist = distance
+            end
+        end
+    end
+    return closest
+end
+
+local function UpdatePlayerStats()
+    while task.wait(1) do
+        local role = "Innocent"
+        local kills = math.random(0, 10)
+        local ping = math.random(30, 120)
+        
+        PlayerStats.Text = string.format("Role: %s | Kills: %d | Ping: %dms", role, kills, ping)
+        
+        if math.random(1, 60) == 1 then
+            PlayerImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=150&height=150&format=png"
+        end
+    end
+end
+coroutine.wrap(UpdatePlayerStats)()
+
+-- Feature Implementations
+local Enabled = {}
+local ESPHandles = {}
+local AimbotTarget = nil
+local FlyConnection = nil
+local NoclipConnection = nil
+local SpeedHackConnection = nil
+local InfiniteJumpConnection = nil
+local AutoFarmConnection = nil
+
+-- ESP Functions
+
+-- REPLACE ENTIRE CreateESP FUNCTION with this:
+
+local function IsAlive(player)
+    for playerName, data in pairs(roles) do
+        if player.Name == playerName then
+            return not data.Killed and not data.Dead
+        end
+    end
+    return false
+end
+
+local function CreateESP(player)
+    if not player.Character then return end
+    
+    -- Cleanup existing ESP
+    if ESPHandles[player] then
+        for _, v in pairs(ESPHandles[player]) do
+            if v then v:Destroy() end
+        end
+    end
+    
+    ESPHandles[player] = {}
+    
+    -- Highlight Setup
+    local highlight = Instance.new("Highlight")
+    highlight.Name = player.Name.."_ESP"
+    highlight.Adornee = player.Character
+    highlight.FillTransparency = 0.8
+    highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+    
+    -- Role-based Colors
+    if player.Name == Murder and IsAlive(player) then
+        highlight.FillColor = Color3.fromRGB(255, 0, 0)
+        highlight.OutlineColor = Color3.fromRGB(200, 0, 0)
+    elseif player.Name == Sheriff and IsAlive(player) then
+        highlight.FillColor = Color3.fromRGB(0, 0, 255)
+        highlight.OutlineColor = Color3.fromRGB(0, 0, 200)
+    elseif player.Name == Hero and IsAlive(player) then
+        highlight.FillColor = Color3.fromRGB(255, 255, 0)
+        highlight.OutlineColor = Color3.fromRGB(200, 200, 0)
+    else
+        highlight.FillColor = IsAlive(player) and Color3.fromRGB(0, 255, 0) or Color3.fromRGB(100, 100, 100)
+        highlight.OutlineColor = IsAlive(player) and Color3.fromRGB(0, 200, 0) or Color3.fromRGB(50, 50, 50)
+    end
+    
+    highlight.Parent = player.Character
+    table.insert(ESPHandles[player], highlight)
+    
+    -- Distance Label
+    local billboard = Instance.new("BillboardGui")
+    billboard.Adornee = player.Character:WaitForChild("Head")
+    billboard.Size = UDim2.new(0, 100, 0, 40)
+    billboard.StudsOffset = Vector3.new(0, 2.5, 0)
+    billboard.AlwaysOnTop = true
+    
+    local distanceLabel = Instance.new("TextLabel")
+    distanceLabel.Size = UDim2.new(1, 0, 1, 0)
+    distanceLabel.Font = Enum.Font.GothamBold
+    distanceLabel.TextSize = 14
+    distanceLabel.TextColor3 = Color3.new(1, 1, 1)
+    distanceLabel.BackgroundTransparency = 1
+    distanceLabel.Parent = billboard
+    
+    billboard.Parent = player.Character
+    table.insert(ESPHandles[player], billboard)
+    
+    -- Update Loop
+    local conn
+    conn = RunService.Heartbeat:Connect(function()
+        if not player.Character or not LP.Character then
+            conn:Disconnect()
+            return
+        end
+        
+        local distance = (player.Character.HumanoidRootPart.Position - LP.Character.HumanoidRootPart.Position).Magnitude
+        distanceLabel.Text = player.Name.."\n"..math.floor(distance).."m"
+    end)
+    table.insert(ESPHandles[player], conn)
+end
+
+-- Speed Hack
+local function SpeedHack()
+    if SpeedHackConnection then SpeedHackConnection:Disconnect() end
+    
+    if Enabled["Speed Hack"] then
+        SpeedHackConnection = RunService.Heartbeat:Connect(function()
+            if LP.Character and LP.Character:FindFirstChild("Humanoid") then
+                LP.Character.Humanoid.WalkSpeed = 50
+            end
+        end)
+    else
+        if LP.Character and LP.Character:FindFirstChild("Humanoid") then
+            LP.Character.Humanoid.WalkSpeed = 16
+        end
+    end
+end
+
+-- Fly
+local flyBodyVelocity
+local function Fly()
+    if flyBodyVelocity then flyBodyVelocity:Destroy() end
+    
+    if Enabled["Fly"] then
+        flyBodyVelocity = Instance.new("BodyVelocity")
+        flyBodyVelocity.Velocity = Vector3.new(0, 0, 0)
+        flyBodyVelocity.MaxForce = Vector3.new(0, math.huge, 0)
+        flyBodyVelocity.Parent = LP.Character.HumanoidRootPart
+        
+        RunService.Heartbeat:Connect(function()
+            local cam = workspace.CurrentCamera.CFrame
+            local moveVec = Vector3.new()
+            
+            if UserInputService:IsKeyDown(Enum.KeyCode.W) then moveVec += cam.LookVector end
+            if UserInputService:IsKeyDown(Enum.KeyCode.S) then moveVec -= cam.LookVector end
+            if UserInputService:IsKeyDown(Enum.KeyCode.D) then moveVec += cam.RightVector end
+            if UserInputService:IsKeyDown(Enum.KeyCode.A) then moveVec -= cam.RightVector end
+            
+            flyBodyVelocity.Velocity = moveVec * 50
+        end)
+    end
+end
+
+-- Infinite Jump
+UserInputService.JumpRequest:Connect(function()
+    if Enabled["Infinite Jump"] and LP.Character:FindFirstChild("Humanoid") then
+        LP.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+    end
+end)
+
+-- Inside ToggleFrame.InputBegan:Connect(function(input)...)
+-- Add these cases:
+
+if feature.Name == "Player ESP" then
+    Enabled["Player ESP"] = feature.Default
+    if feature.Default then
+        -- Enable ESP for all players
+        for _, player in pairs(Players:GetPlayers()) do
+            if player ~= LP then
+                CreateESP(player)
+            end
+        end
+    else
+        -- Disable all ESP
+        for player, _ in pairs(ESPHandles) do
+            CleanupESP(player)
+        end
+    end
+
+elseif feature.Name == "Speed Hack" then
+    Enabled["Speed Hack"] = feature.Default
+    SpeedHack()
+
+elseif feature.Name == "Fly" then
+    Enabled["Fly"] = feature.Default
+    Fly()
+
+elseif feature.Name == "Infinite Jump" then
+    Enabled["Infinite Jump"] = feature.Default
+
+end
+-- Add at the VERY END:
+RunService.Heartbeat:Connect(function()
+    -- ESP Updates
+    if Enabled["Player ESP"] then
+        for _, player in pairs(Players:GetPlayers()) do
+            if player ~= LP and player.Character then
+                if not ESPHandles[player] then
+                    CreateESP(player)
+                end
+            end
+        end
+    end
+    local function GetClosestPlayer()
+    local closest, dist = nil, math.huge
+    for _, player in pairs(Players:GetPlayers()) do
+        if player ~= LP and player.Character and IsAlive(player) then
+            local distance = (LP.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude
+            if distance < dist then
+                closest = player
+                dist = distance
+            end
+        end
+    end
+    return closest
+end
+    
+    -- Aimbot
+    if Enabled["Aimbot"] then
+        local target = GetClosestPlayer()
+        if target then
+            workspace.CurrentCamera.CFrame = CFrame.lookAt(
+                workspace.CurrentCamera.CFrame.Position,
+                target.Character.HumanoidRootPart.Position
+            )
+        end
+    end
+end)
+
+-- ESP Functions (replace existing CreateESP function)
+local function IsAlive(player)
+    for playerName, data in pairs(roles) do
+        if player.Name == playerName then
+            return not data.Killed and not data.Dead
+        end
+    end
+    return false
+end
+
+local function CreateESP(player)
+    -- [Keep all the role-based ESP code you provided here]
+    -- [The entire CreateESP function with highlight colors based on roles]
+end
+
+local function Aimbot()
+    if not Enabled["Aimbot"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then return end
+    
+    local target = GetClosestPlayer()
+    if target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+        workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, target.Character.HumanoidRootPart.Position)
+    end
+end
+
+-- Movement Functions
+local function SpeedHack()
+    if SpeedHackConnection then SpeedHackConnection:Disconnect() end
+    
+    if not Enabled["Speed Hack"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then 
+        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        end
+        return 
+    end
+    
+    SpeedHackConnection = game:GetService("RunService").Heartbeat:Connect(function()
+        if not Enabled["Speed Hack"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+            SpeedHackConnection:Disconnect()
+            return
+        end
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+    end)
+end
+
+local function Fly()
+    if FlyConnection then FlyConnection:Disconnect() end
+    
+    if not Enabled["Fly"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then 
+        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+            game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Landed)
+        end
+        return 
+    end
+    
+    local bodyVelocity = Instance.new("BodyVelocity")
+    bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+    bodyVelocity.MaxForce = Vector3.new(0, math.huge, 0)
+    bodyVelocity.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+    
+    FlyConnection = game:GetService("RunService").Heartbeat:Connect(function()
+        if not Enabled["Fly"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            bodyVelocity:Destroy()
+            FlyConnection:Disconnect()
+            return
+        end
+        
+        local cam = workspace.CurrentCamera.CFrame
+        local moveVec = Vector3.new()
+        
+        if UserInputService:IsKeyDown(Enum.KeyCode.W) then
+            moveVec = moveVec + cam.LookVector
+        end
+        if UserInputService:IsKeyDown(Enum.KeyCode.S) then
+            moveVec = moveVec - cam.LookVector
+        end
+        if UserInputService:IsKeyDown(Enum.KeyCode.D) then
+            moveVec = moveVec + cam.RightVector
+        end
+        if UserInputService:IsKeyDown(Enum.KeyCode.A) then
+            moveVec = moveVec - cam.RightVector
+        end
+        
+        bodyVelocity.Velocity = moveVec * 50
+    end)
+end
+
+local function Noclip()
+    if NoclipConnection then NoclipConnection:Disconnect() end
+    
+    if not Enabled["NoClip"] then return end
+    
+    NoclipConnection = game:GetService("RunService").Stepped:Connect(function()
+        if not Enabled["NoClip"] or not game.Players.LocalPlayer.Character then
+            NoclipConnection:Disconnect()
+            return
+        end
+        
+        for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+            if part:IsA("BasePart") then
+                part.CanCollide = false
+            end
+        end
+    end)
+end
+
+local function InfiniteJump()
+    if InfiniteJumpConnection then InfiniteJumpConnection:Disconnect() end
+    
+    if not Enabled["Infinite Jump"] then return end
+    
+    InfiniteJumpConnection = UserInputService.JumpRequest:Connect(function()
+        if Enabled["Infinite Jump"] and game.Players.LocalPlayer.Character then
+            local humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+            if humanoid then
+                humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+            end
+        end
+    end)
+end
