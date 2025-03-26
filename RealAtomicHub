@@ -1,7 +1,5 @@
-if game.ID == 142823291 then 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Cfrtx/AtomicHub/refs/heads/main/MM2"))()
-elseif game.ID == 2753915549 then 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Cfrtx/AtomicHub/refs/heads/main/Bloxfruits
-"))()
+if game.ID == 142823291 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Cfrtx/AtomicHub/refs/heads/main/MM2"))()
+elseif game.ID == 2753915549 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Cfrtx/AtomicHub/refs/heads/main/Bloxfruits"))()
 end
-
